@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="lfsstripereports">LFS Stripe Reports</h1>
+
+<p>View and download custom reports for payouts your organization has collected via Stripe.</p>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<ul>
+<li>[x] Phase 1: Display reports</li>
+<li>[x] Phase 2: Provide CSV downloads &#8230; = 1.0 release</li>
+<li>[ ] Phase 3: Provide Email funx &#8230; = 1.5 release</li>
+<li>[ ] Phase 4: Provide Scheduled reports/emails &#8230; = 2.0 release</li>
+</ul>
+
+<p>Currently making use of custom role: &#8216;stripe_reports&#8217; via <a href="https://wordpress.org/plugins/members/">Members</a></p>
+
+<p>IDEA: <strong>Dashboard Widget?</strong> Just show latest payout. Download straight from the front page? (behind role check, of course)</p>
+
+<ul>
+<li>[x] add submenu page for Options/settings</li>
+<li>[x] get API key and API ver saving as settings</li>
+<li>[x] actually read API key and API ver from db to render table rows</li>
+<li>[ ] better styling for status &#8216;pills&#8217;</li>
+<li>[x] add &#8216;no API key set&#8217; state in payout table</li>
+<li>[ ] add &#8216;no payouts&#8217; state in render_payout_rows</li>
+<li>[ ] add error/no-connection state in render_payout_rows</li>
+<li>[ ] add instructions for Members dependency and role creation</li>
+<li>[x] add plugin header info for use with Github Updater</li>
+</ul>
+
+</body>
+</html>
+

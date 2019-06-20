@@ -1,0 +1,140 @@
+// minimal WP table accentuation...
+@import 'vars';
+
+body {
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.wrap {
+	font-family: $fonts-system;
+}
+
+.wrap > h2:first-child {
+	font-weight: 700;
+}
+
+// .powered-by { float: right; }
+
+table.table--payouts {
+	background: $rgba-primary-3;
+	border: none;
+	border-collapse: collapse;
+    border-radius: 6px;
+    border-spacing: 0;
+	font-family: $fonts-lfs;
+	margin-bottom: 20px;
+
+	caption {
+		caption-side: bottom;
+	}
+
+	tr {
+		transition: background 0.3s, box-shadow 0.3s;
+
+		&:hover {
+			background: rgba(0,0,0,0.1);
+
+			td { color: #fff; }
+		}
+
+		&.micro-row {
+			font-size: 4px;
+			line-height: .5;
+		}
+	}
+
+	td, th {
+		// box-shadow: inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25);
+	}
+
+	th {
+		-webkit-font-smoothing: antialiased;
+		padding: 1em;
+		color: rgba(255,255,255,0.75);
+		text-shadow: 0 0 1px rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		font-size: 1em;
+	}
+
+	td {
+		color: #fdfdfd;
+		padding: 0.7em 1em 0.7em 1.15em;
+		text-shadow: 0 0 1px rgba(255,255,255,0.2);
+		font-size: 1.1em;
+	}
+}
+
+table.table--payouts.plugin-needs-settings {
+	background: $rgba-gray-disabled;
+
+	.link--csv { display: none; }
+}
+
+.transfer-details tbody td:last-child {
+	font-weight: bold;
+}
+
+.transfer-row {
+	font-style: italic;
+}
+
+.payout-row td:nth-child(1) {
+	text-align: center;
+}
+
+.head-row th:nth-child(3)
+.head-row th:nth-child(4),
+.charge-row td:nth-child(2),
+.transfer-row td:nth-child(2),
+.payout-row td:nth-child(3),
+.payout-row td:nth-child(4) {
+	text-align: right !important;
+}
+
+.payout-row td:nth-child(3) {
+	font-weight: bold;
+}
+
+.refund-row {
+	font-style: italic;
+	background-color: rgba(255,0,0,0.1);
+	color: #900;
+}
+
+span[class^="status-"] {
+	font-size: .7em;
+	border-radius: 4px;
+	padding: .125em .75em;
+	text-transform: uppercase;
+}
+
+span {
+	&.status-paid {
+		background-color: rgba(0,255,0,0.1);
+	}
+	&.status-pending,
+	&.status-in_transit {
+		background-color: #ccc;
+	}
+	&.status-canceled {
+		background-color: rgba(orange,0.1);
+	}
+	&.status-failed {
+		background-color: rgba(255,0,0,0.1);
+	}
+}
+
+
+
+.status-pending,
+.status-in_transit {
+	font-style: italic;
+
+	.link--csv {
+		display: none;
+	}
+}
+
+
