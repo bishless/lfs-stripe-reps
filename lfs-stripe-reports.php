@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Lechoso Forestry Service
  * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
@@ -38,7 +38,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.0' );
+define( 'LFSSR_VER', '1.1.1' );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
@@ -140,6 +140,7 @@ function lfssr_create_menu_page() {
 
 	// menu icon
 	$svg = '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8.383 9.467c0-.643.554-.89 1.472-.89 1.317 0 2.98.379 4.296 1.055V5.758C12.713 5.214 11.293 5 9.855 5 6.34 5 4 6.747 4 9.665c0 4.55 6.583 3.824 6.583 5.786 0 .758-.693 1.005-1.663 1.005-1.438 0-3.274-.56-4.73-1.319v3.923c1.612.66 3.24.94 4.73.94 3.603 0 6.08-1.698 6.08-4.648-.017-4.912-6.617-4.039-6.617-5.885z" fill="#9FA3A8"/><path d="M16.778 3.222A10.966 10.966 0 0 0 9 0h11l-3.222 3.222z" fill="#CE182D"/><path d="M20 11c0-3.038-1.231-5.788-3.222-7.778L20 0v11z" fill="#940418"/></g></svg>';
+	$icon = 'data:image/svg+xml;base64,' . base64_encode( $svg );
 
 	add_menu_page(
 		'Stripe Reports',
@@ -147,7 +148,7 @@ function lfssr_create_menu_page() {
 		LFSSR_CAP, // should this be a new custom role?
 		'lfs-stripe-reports', // menu
 		'lfssr_menu_page_display',
-		'data:image/svg+xml;base64,' . base64_encode( $svg ),
+		$icon,
 	);
 	add_submenu_page(
 		'lfs-stripe-reports', // parent slug
