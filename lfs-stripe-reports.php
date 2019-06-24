@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Lechoso Forestry Service
  * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
@@ -27,6 +27,11 @@ if ( ! defined( 'WPINC' ) ) {
 	 die;
 }
 
+if ( ! defined('LFS_ENV') ) {
+	define( 'LFS_ENV', 'prod' );
+}
+
+
 // Defines the path to the main plugin file.
 define( 'LFSSR_FILE', __FILE__ );
 
@@ -38,7 +43,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.1' );
+define( 'LFSSR_VER', '1.1.2' );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
@@ -274,9 +279,12 @@ function lfssr_menu_page_display() {
 		<p><a href="admin.php?page=lfs-stripe-reports-settings">Settings</a> | <a href="https://dashboard.stripe.com/">Stripe Dashboard</a></p>
 
 		<br class="clear" />
+
 		<?php if( LFS_ENV === 'dev' ) { ?>
 			<div class="debug">
 				<h4>Debug</h4>
+				<pre>LFS_ENV: <?php echo LFS_ENV; ?></pre>
+				<pre>LFSSR_VER: <?php echo LFSSR_VER; ?></pre>
 				<pre>$plugin_needs_settings: <?php echo $plugin_needs_settings; ?></pre>
 				<pre>key: <?php echo $stripe_options['lfssr_stripe_api_key']; ?></pre>
 				<pre>ver: <?php echo $stripe_options['lfssr_stripe_api_ver']; ?></pre>
