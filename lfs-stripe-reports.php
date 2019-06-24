@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: Lechoso Forestry Service
  * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
@@ -43,7 +43,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.5' );
+define( 'LFSSR_VER', '1.1.6' );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
@@ -152,7 +152,7 @@ function lfssr_create_menu_page() {
 		LFSSR_CAP, // should this be a new custom role?
 		'lfs-stripe-reports', // menu
 		'lfssr_menu_page_display',
-		$icon,
+		$icon
 	);
 	add_submenu_page(
 		'lfs-stripe-reports', // parent slug
@@ -168,7 +168,7 @@ function lfssr_create_menu_page() {
 		'Settings',
 		LFSSR_CAP, // role
 		'lfs-stripe-reports-settings', // menu slug
-		'lfssr_options_page_display', // function
+		'lfssr_options_page_display' // function
 	);
 
 	// add_submenu_page(
@@ -177,7 +177,7 @@ function lfssr_create_menu_page() {
 	// 	'Write Test',
 	// 	$capability,
 	// 	'lfs-stripe-write-test',
-	// 	'lfssr_write_page_display',
+	// 	'lfssr_write_page_display'
 	// );
 }
 
