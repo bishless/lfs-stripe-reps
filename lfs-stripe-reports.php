@@ -4,13 +4,13 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Lechoso Forestry Service
  * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: lfs-stripe-reports
- * GitHub Plugin URI: bishless/lfs-stripe-reports
+ * GitHub Plugin URI: bishless/lfs-stripe-reps
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License version 2, as published by the
@@ -43,7 +43,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.2' );
+define( 'LFSSR_VER', '1.1.3' );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
