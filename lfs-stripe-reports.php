@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: Lechoso Forestry Service
  * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
@@ -43,7 +43,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.4' );
+define( 'LFSSR_VER', '1.1.5' );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
@@ -144,7 +144,7 @@ function lfssr_initialize_plugin_options() {
 function lfssr_create_menu_page() {
 
 	// menu icon
-	$icon = data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNi45ODQgOC4xN2MwLS42LjUwNC0uODMyIDEuMzM5LS44MzIgMS4xOTcgMCAyLjcwOC4zNTQgMy45MDUuOTg1VjQuNzA4QzEwLjkyMSA0LjIgOS42MyA0IDguMzIzIDQgNS4xMjYgNCAzIDUuNjMgMyA4LjM1NGMwIDQuMjQ2IDUuOTg0IDMuNTcgNS45ODQgNS40IDAgLjcwOC0uNjMuOTM4LTEuNTEyLjkzOC0xLjMwNyAwLTIuOTc2LS41MjMtNC4yOTktMS4yM3YzLjY2MWMxLjQ2NS42MTUgMi45NDUuODc3IDQuMy44NzdDMTAuNzQ3IDE4IDEzIDE2LjQxNSAxMyAxMy42NjJjLS4wMTYtNC41ODUtNi4wMTYtMy43Ny02LjAxNi01LjQ5M3oiIGZpbGw9IiM5RkEzQTgiLz48cGF0aCBkPSJNMTUuMDcxIDIuOTI5QTkuOTY5IDkuOTY5IDAgMCAwIDggMGgxMGwtMi45MjkgMi45Mjl6IiBmaWxsPSIjQ0UxODJEIi8+PHBhdGggZD0iTTE4IDEwYTkuOTY5IDkuOTY5IDAgMCAwLTIuOTI5LTcuMDcxTDE4IDB2MTB6IiBmaWxsPSIjOTQwNDE4Ii8+PC9nPjwvc3ZnPg==);
+	$icon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNi45ODQgOC4xN2MwLS42LjUwNC0uODMyIDEuMzM5LS44MzIgMS4xOTcgMCAyLjcwOC4zNTQgMy45MDUuOTg1VjQuNzA4QzEwLjkyMSA0LjIgOS42MyA0IDguMzIzIDQgNS4xMjYgNCAzIDUuNjMgMyA4LjM1NGMwIDQuMjQ2IDUuOTg0IDMuNTcgNS45ODQgNS40IDAgLjcwOC0uNjMuOTM4LTEuNTEyLjkzOC0xLjMwNyAwLTIuOTc2LS41MjMtNC4yOTktMS4yM3YzLjY2MWMxLjQ2NS42MTUgMi45NDUuODc3IDQuMy44NzdDMTAuNzQ3IDE4IDEzIDE2LjQxNSAxMyAxMy42NjJjLS4wMTYtNC41ODUtNi4wMTYtMy43Ny02LjAxNi01LjQ5M3oiIGZpbGw9IiM5RkEzQTgiLz48cGF0aCBkPSJNMTUuMDcxIDIuOTI5QTkuOTY5IDkuOTY5IDAgMCAwIDggMGgxMGwtMi45MjkgMi45Mjl6IiBmaWxsPSIjQ0UxODJEIi8+PHBhdGggZD0iTTE4IDEwYTkuOTY5IDkuOTY5IDAgMCAwLTIuOTI5LTcuMDcxTDE4IDB2MTB6IiBmaWxsPSIjOTQwNDE4Ii8+PC9nPjwvc3ZnPg==)';
 
 	add_menu_page(
 		'Stripe Reports',
