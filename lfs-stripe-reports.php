@@ -152,7 +152,7 @@ function lfssr_create_menu_page() {
 		LFSSR_CAP, // should this be a new custom role?
 		'lfs-stripe-reports', // menu
 		'lfssr_menu_page_display',
-		$icon
+		$icon,
 	);
 	add_submenu_page(
 		'lfs-stripe-reports', // parent slug
@@ -168,7 +168,7 @@ function lfssr_create_menu_page() {
 		'Settings',
 		LFSSR_CAP, // role
 		'lfs-stripe-reports-settings', // menu slug
-		'lfssr_options_page_display' // function
+		'lfssr_options_page_display', // function
 	);
 
 	// add_submenu_page(
