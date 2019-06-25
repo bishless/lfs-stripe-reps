@@ -4,6 +4,10 @@ body {
 	font-weight: 400;
 }
 
+.text-center {
+	text-align: center;
+}
+
 div[class^='on-'] {
 	margin-bottom: 1em;
 	padding: $space*2 $space;
@@ -48,13 +52,31 @@ a.button {
 	}
 }
 
+section {
+	background-color: #fff;
+	border: 1px solid $oc-gray-2;
+	border-radius: $space;
+	margin: 0 $space $space*4;
+	padding: $space $space*4;
+}
+
+.powered-by {
+	float: right;
+}
+
+.debug {
+	pre {
+		font-family: 'SF Mono', 'Fira Code', Consolas, sans-serif;
+	}
+	.val { color: $oc-blue-6; }
+}
 
 .footer {
 	background-image: url(footer.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 236px 12px;
-	color: $oc-green-6;
+	color: $oc-gray-5;
 	font-size: 0.8em;
 	padding-top: $space*10;
 	text-align: center;

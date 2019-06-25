@@ -223,19 +223,6 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"/scss/_tables-orig.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 3,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "/assets/_tables-orig.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"/scss/_tables.scss": {
 		"aP": 1,
 		"bl": 0,

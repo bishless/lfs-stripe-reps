@@ -2,23 +2,33 @@
 
 /* line 1, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ body { line-height: 1.6; font-weight: 400; }
 
-/* line 7, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ div[class^='on-'] { margin-bottom: 1em; padding: 16px 8px; border-radius: 8px; }
+/* line 7, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .text-center { text-align: center; }
 
-/* line 13, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ a.button { cursor: pointer; }
+/* line 11, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ div[class^='on-'] { margin-bottom: 1em; padding: 16px 8px; border-radius: 8px; }
 
-/* line 18, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .on-light-background-color { background-color: #fff; color: #495057; }
+/* line 17, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ a.button { cursor: pointer; }
 
-/* line 22, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .on-dark-background-color { background-color: #212529; color: #e9ecef; }
+/* line 22, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .on-light-background-color { background-color: #fff; color: #495057; }
 
-/* line 27, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .wrap { font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+/* line 26, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .on-dark-background-color { background-color: #212529; color: #e9ecef; }
 
-/* line 31, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-wrapper { background-color: #fff; border: 1px solid #e9ecef; border-radius: 3px; box-shadow: 0 2px 30px rgba(25, 30, 35, 0.05); color: #212529; margin: 24px auto 80px; max-width: 800px; text-align: left; }
+/* line 31, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .wrap { font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 
-/* line 43, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-content { padding: 32px; }
+/* line 35, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-wrapper { background-color: #fff; border: 1px solid #e9ecef; border-radius: 3px; box-shadow: 0 2px 30px rgba(25, 30, 35, 0.05); color: #212529; margin: 24px auto 80px; max-width: 800px; text-align: left; }
 
-/* line 46, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-content h1 { font-weight: 700; }
+/* line 47, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-content { padding: 32px; }
 
-/* line 52, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .footer { background-image: url(footer.png); background-position: center; background-repeat: no-repeat; background-size: 236px 12px; color: #40c057; font-size: 0.8em; padding-top: 80px; text-align: center; }
+/* line 50, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .lfs-page-content h1 { font-weight: 700; }
+
+/* line 55, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ section { background-color: #fff; border: 1px solid #e9ecef; border-radius: 8px; margin: 0 8px 32px; padding: 8px 32px; }
+
+/* line 63, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .powered-by { float: right; }
+
+/* line 68, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .debug pre { font-family: 'SF Mono', 'Fira Code', Consolas, sans-serif; }
+
+/* line 71, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .debug .val { color: #228be6; }
+
+/* line 74, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_base.scss */ .footer { background-image: url(footer.png); background-position: center; background-repeat: no-repeat; background-size: 236px 12px; color: #adb5bd; font-size: 0.8em; padding-top: 80px; text-align: center; }
 
 /* line 1, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_test-only.scss */ body.style-tests { background-color: #f8f9fa; color: #444; font-family: "Segoe UI", sans-serif; }
 
@@ -28,79 +38,79 @@
 
 /* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_test-only.scss */ div[class^='on-'] { margin-bottom: 1em; padding: 0.75em 0.5em; border-radius: 10px; }
 
-/* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table { /*width: 100%;*/ border: none; border-collapse: collapse; color: #495057; border-spacing: 0; min-width: 25vw; text-align: left; }
+/* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table { /*width: 100%;*/ border: none; border-collapse: collapse; color: #495057; border-spacing: 0; min-width: 25vw; text-align: left; }
 
-/* line 12, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table caption { caption-side: bottom; color: #343a40; font-style: italic; }
+/* line 12, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table caption { caption-side: bottom; color: #343a40; font-style: italic; }
 
-/* line 18, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ td, th { vertical-align: middle; padding: 0.75em 1em; }
+/* line 18, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ td, th { vertical-align: middle; padding: 16px; }
 
-/* line 24, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ thead { border-bottom: 2px solid #dee2e6; }
+/* line 24, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ thead { border-bottom: 2px solid #dee2e6; }
 
-/* line 28, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ tfoot { border-top: 2px solid #dee2e6; }
+/* line 28, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ tfoot { border-top: 2px solid #dee2e6; }
 
-@supports ((-webkit-font-feature-settings: lnum) or (font-feature-settings: lnum)) { /* line 34, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table { -webkit-font-feature-settings: lnum tnum; font-feature-settings: lnum tnum; } }
+@supports ((-webkit-font-feature-settings: lnum) or (font-feature-settings: lnum)) { /* line 34, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table { -webkit-font-feature-settings: lnum tnum; font-feature-settings: lnum tnum; } }
 
-@supports (font-variant-numeric: lining-nums tabular-nums) { /* line 39, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table { font-variant-numeric: lining-nums tabular-nums; } }
+@supports (font-variant-numeric: lining-nums tabular-nums) { /* line 39, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table { font-variant-numeric: lining-nums tabular-nums; } }
 
-/* line 44, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts { border: none; border-collapse: collapse; border-radius: 4px; border-spacing: 0; margin-bottom: 20px; }
+/* line 44, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts { border: none; border-collapse: collapse; border-radius: 4px; border-spacing: 0; margin-left: auto; margin-right: auto; margin-bottom: 24px; }
 
-/* line 52, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts caption { caption-side: bottom; }
+/* line 53, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts caption { caption-side: bottom; color: #495057; padding-top: 8px; }
 
-/* line 56, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr { -webkit-transition: background 0.3s, box-shadow 0.3s; transition: background 0.3s, box-shadow 0.3s; }
+/* line 59, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr { -webkit-transition: background 0.3s, box-shadow 0.3s; transition: background 0.3s, box-shadow 0.3s; }
 
-/* line 67, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.micro-row { font-size: 4px; line-height: .5; }
+/* line 70, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.micro-row { font-size: 4px; line-height: .5; }
 
-/* line 72, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.status-pending, table.table--payouts tr.status-in_transit { border-bottom: 1px solid #e67700; font-style: italic; }
+/* line 74, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.micro-row td { padding: 0; }
 
-/* line 77, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.status-pending td, table.table--payouts tr.status-in_transit td { color: #adb5bd; }
+/* line 77, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.status-pending, table.table--payouts tr.status-in_transit { border-bottom: 1px solid #f59f00; font-style: italic; }
 
-/* line 79, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.status-pending .link--csv, table.table--payouts tr.status-in_transit .link--csv { display: none; }
+/* line 82, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.status-pending td, table.table--payouts tr.status-in_transit td { color: #adb5bd; }
 
-/* line 83, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.status-canceled { border-bottom: 1px dashed #d9480f; }
+/* line 84, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.status-pending .link--csv, table.table--payouts tr.status-in_transit .link--csv { display: none; }
 
-/* line 86, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts tr.status-failed { border-bottom: 2px solid #c92a2a; }
+/* line 88, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.status-canceled { border-bottom: 1px dashed #d9480f; }
 
-/* line 92, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts th:not(:first-of-type), table.table--payouts th:not(:last-of-type), table.table--payouts td:not(:first-of-type), table.table--payouts td:not(:last-of-type) { padding-right: 1.25em; }
+/* line 91, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts tr.status-failed { border-bottom: 2px solid #c92a2a; }
 
-/* line 99, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts th { -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 1em; }
+/* line 97, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts th:not(:first-of-type), table.table--payouts th:not(:last-of-type), table.table--payouts td:not(:first-of-type), table.table--payouts td:not(:last-of-type) { padding-right: 12px; }
 
-/* line 107, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts td { font-size: 1em; }
+/* line 104, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts th { -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 1em; }
 
-/* line 116, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr { -webkit-transition: background 0.3s, box-shadow 0.3s; transition: background 0.3s, box-shadow 0.3s; }
+/* line 112, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts td { font-size: 1em; }
 
-/* line 119, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr:hover { background-color: rgba(248, 249, 250, 0.1); }
+/* line 124, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr:hover { background-color: rgba(248, 249, 250, 0.1); }
 
-/* line 122, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr:hover td { color: #f8f9fa; }
+/* line 127, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr:hover td { color: #f8f9fa; }
 
-/* line 125, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr.status-pending, table.table--payouts.on-dark-background-color tr.status-in_transit { border-bottom: 1px solid #e67700; }
+/* line 130, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr.status-pending, table.table--payouts.on-dark-background-color tr.status-in_transit { border-bottom: 1px solid #f59f00; }
 
-/* line 129, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr.status-pending td, table.table--payouts.on-dark-background-color tr.status-in_transit td { color: #495057; }
+/* line 134, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr.status-pending td, table.table--payouts.on-dark-background-color tr.status-in_transit td { color: #495057; }
 
-/* line 131, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
+/* line 136, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
 
-/* line 134, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
+/* line 139, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
 
-/* line 140, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color th { color: rgba(248, 249, 250, 0.5); text-shadow: 0 0 1px rgba(248, 249, 250, 0.2); }
+/* line 145, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color th { color: rgba(248, 249, 250, 0.5); text-shadow: 0 0 1px rgba(248, 249, 250, 0.2); }
 
-/* line 145, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.on-dark-background-color td { color: #e9ecef; text-shadow: 0 0 1px rgba(33, 37, 41, 0.2); }
+/* line 150, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.on-dark-background-color td { color: #e9ecef; text-shadow: 0 0 1px rgba(33, 37, 41, 0.2); }
 
-/* line 152, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.plugin-needs-settings { background: #cecece; }
+/* line 157, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings { background: #cecece; }
 
-/* line 155, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ table.table--payouts.plugin-needs-settings .link--csv { display: none; }
+/* line 160, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings .link--csv { display: none; }
 
-/* line 170, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ .head-row th:nth-child(3) .head-row th:nth-child(4), .charge-row td:nth-child(2), .transfer-row td:nth-child(2), .payout-row td:nth-child(3), .payout-row td:nth-child(4) { text-align: right !important; }
+/* line 175, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .head-row th:nth-child(3) .head-row th:nth-child(4), .charge-row td:nth-child(2), .transfer-row td:nth-child(2), .payout-row td:nth-child(3), .payout-row td:nth-child(4) { text-align: right !important; }
 
-/* line 179, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ .payout-row td:nth-child(3) { font-weight: bold; }
+/* line 184, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .payout-row td:nth-child(3) { font-weight: bold; }
 
-/* line 183, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables-orig.scss */ .refund-row { font-style: italic; background-color: rgba(255, 0, 0, 0.1); color: #900; }
+/* line 188, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .refund-row { font-style: italic; background-color: rgba(255, 0, 0, 0.1); color: #900; }
 
-/* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ span[class*='pill__status--'] { border-radius: 4px; font-size: 0.7em; font-weight: bold; line-height: 0.9; padding: 4px 8px; text-transform: uppercase; }
+/* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ span[class*='pill__status--'] { border-radius: 12px; font-size: 0.75em; font-weight: bold; line-height: 0.9; padding: 4px 12px; text-transform: uppercase; }
 
-/* line 11, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ span[class*='pill__status--'] + span[class*='pill__status--'] { margin-left: 4px; }
+/* line 11, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ span[class*='pill__status--'] + span[class*='pill__status--'] { margin-left: 12px; }
 
 /* line 18, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color { background-color: #23282d; }
 
-/* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span[class*='pill__status--'] { background-color: #dee2e6; }
+/* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span[class*='pill__status--'] { background-color: #ced4da; }
 
 /* line 25, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--paid { color: #2b8a3e; }
 

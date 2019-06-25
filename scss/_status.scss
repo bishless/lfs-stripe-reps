@@ -1,11 +1,11 @@
 
 span[class*='pill__status--'] {
-	$rad: 4px;
+	$rad: $space*1.5;
 	border-radius: $rad;
-	font-size: 0.7em;
+	font-size: 0.75em;
 	font-weight: bold;
 	line-height: 0.9;
-	padding: $space/2 $space;
+	padding: $space/2 $space*1.5;
 	text-transform: uppercase;
 
 	& + & {
@@ -19,12 +19,12 @@ span[class*='pill__status--'] {
 	background-color: $color-admin-dark;
 
 	span[class*='pill__status--'] {
-		background-color: $oc-gray-3;
+		background-color: $oc-gray-4;
 	}
 
 	span.pill__status--paid { color: $color-status-paid; }
 	span.pill__status--pending,
-	span.pill__status--in_transit { color: $color-status-pending; }
+	span.pill__status--in_transit {	color: $color-status-pending; }
 	span.pill__status--canceled,
 	span.pill__status--cancelled { color: $color-status-canceled; }
 	span.pill__status--failed { color: $color-status-failed; }

@@ -1,8 +1,10 @@
 
 table {
 	/*width: 100%;*/
+	// background-color: $oc-gray-0;
 	border: none;
 	border-collapse: collapse;
+	color: $oc-gray-7;
 	border-spacing: 0;
 	min-width: 25vw;
 	text-align: left;
@@ -16,7 +18,7 @@ table {
 td,
 th {
 	vertical-align: middle;
-	padding: 1.2rem 0.4rem;
+	padding: $space*2;
 }
 
 thead {
@@ -39,37 +41,45 @@ tfoot {
 	}
 }
 
-table.table--payouts {
-	// background: $rgba-primary-3;
+table.table--payouts { // default, on-light-background-color
 	border: none;
 	border-collapse: collapse;
-	border-radius: 6px;
+	border-radius: 4px;
 	border-spacing: 0;
-	// font-family: $fonts-lfs;
-	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: $space*3;
 
 	caption {
 		caption-side: bottom;
+		color: $oc-gray-7;
+		padding-top: $space;
 	}
 
 	tr {
 		transition: background 0.3s, box-shadow 0.3s;
 
 		&:hover {
-			background-color: rgba(0,0,0,0.1);
+			// background-color: rgba(0,0,0,0.1);
 
-			td { color: $oc-gray-9; }
+			td {
+				// color: $oc-gray-9;
+			}
 		}
 
 		&.micro-row {
 			font-size: 4px;
 			line-height: .5;
+
+			td { padding: 0; }
 		}
 
 		&.status-pending,
 		&.status-in_transit {
-			border-bottom: 1px solid $color-status-pending;
+			border-bottom: 1px solid $oc-yellow-7;
 			font-style: italic;
+
+			td { color: $oc-gray-5; }
 
 			.link--csv {
 				display: none;
@@ -84,22 +94,65 @@ table.table--payouts {
 
 	}
 
+	th:not(:first-of-type),
+	th:not(:last-of-type),
+	td:not(:first-of-type),
+	td:not(:last-of-type) {
+		padding-right: $space*1.5;
+	}
+
 	th {
 		-webkit-font-smoothing: antialiased;
-		padding: 1em;
-		color: rgba(0,0,0,0.5);
-		text-shadow: 0 0 1px rgba(0,0,0,0.2);
+		// color: rgba(0,0,0,0.5);
+		// text-shadow: 0 0 1px rgba(0,0,0,0.2);
 		text-transform: uppercase;
 		font-size: 1em;
 	}
 
 	td {
-		color: $oc-gray-7;
-		padding: 0.7em 1em 0.7em 1.15em;
-		text-shadow: 0 0 1px rgba(255,255,255,0.2);
-		font-size: 1.1em;
+		// color: $oc-gray-7;
+		// text-shadow: 0 0 1px rgba(255,255,255,0.2);
+		font-size: 1em;
 	}
 }
+
+
+table.table--payouts.on-dark-background-color {
+
+	tr {
+
+		&:hover {
+			background-color: rgba($oc-gray-0,0.1);
+
+			td { color: $oc-gray-0; }
+		}
+
+		&.status-pending,
+		&.status-in_transit {
+			border-bottom: 1px solid $oc-yellow-7;
+
+			td { color: $oc-gray-7; }
+		}
+		&.status-canceled {
+			border-bottom: 1px dashed $color-status-canceled;
+		}
+		&.status-failed {
+			border-bottom: 2px solid $color-status-failed;
+		}
+
+	}
+
+	th {
+		color: rgba($oc-gray-0,0.5);
+		text-shadow: 0 0 1px rgba($oc-gray-0,0.2);
+	}
+
+	td {
+		color: $oc-gray-2;
+		text-shadow: 0 0 1px rgba($oc-gray-9,0.2);
+	}
+}
+
 
 table.table--payouts.plugin-needs-settings {
 	background: $rgba-gray-disabled;
@@ -107,17 +160,17 @@ table.table--payouts.plugin-needs-settings {
 	.link--csv { display: none; }
 }
 
-.transfer-details tbody td:last-child {
-	font-weight: bold;
-}
+// .transfer-details tbody td:last-child {
+// 	font-weight: bold;
+// }
 
-.transfer-row {
-	font-style: italic;
-}
+// .transfer-row {
+// 	font-style: italic;
+// }
 
-.payout-row td:nth-child(1) {
-	text-align: center;
-}
+// .payout-row td:nth-child(1) {
+// 	text-align: center;
+// }
 
 .head-row th:nth-child(3)
 .head-row th:nth-child(4),
