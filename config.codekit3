@@ -23,8 +23,30 @@
 		"oA": 0,
 		"oAP": "/assets/footer.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/assets/icon-128x128.png": {
+		"ft": 32768,
+		"iS": 6530,
+		"oA": 0,
+		"oAP": "/assets/icon-128x128.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/assets/icon-256x256.png": {
+		"ft": 32768,
+		"iS": 17237,
+		"oA": 0,
+		"oAP": "/assets/icon-256x256.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
