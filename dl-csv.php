@@ -8,6 +8,13 @@ $ver = $_GET['v'];
 $filename = $prefix. '-charges-in-' . $pid . '.csv';
 header( 'Content-Type: text/csv; charset=utf-8' );
 header( 'Content-Disposition: attachment; filename='.$filename );
+// Disable caching - HTTP 1.1
+header("Cache-Control: no-cache, no-store, must-revalidate");
+// Disable caching - HTTP 1.0
+header("Pragma: no-cache");
+// Disable caching - Proxies
+header("Expires: 0");
+
 use Stripe\SKU;
 use Stripe\Refund;
 use Stripe\Payout;
