@@ -4,9 +4,8 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.1.6
+ * Version: 1.2.0
  * Author: Lechoso Forestry Service
- * Author URI: https://lechoso.xyz/
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: lfs-stripe-reports
@@ -31,6 +30,7 @@ if ( ! defined('LFS_ENV') ) {
 	define( 'LFS_ENV', 'prod' );
 }
 
+$lfs_plugin = get_plugin_data( __FILE__ );
 
 // Defines the path to the main plugin file.
 define( 'LFSSR_FILE', __FILE__ );
@@ -43,7 +43,7 @@ define( 'LFSSR_PATH', plugin_dir_path( LFSSR_FILE ) );
 define( 'LFSSR_URL', plugin_dir_url( LFSSR_FILE ) );
 
 // Defines the current version of the plugin.
-define( 'LFSSR_VER', '1.1.6' );
+define( 'LFSSR_VER', $lfs_plugin['Version'] );
 
 define( 'LFSSR_CAP', 'stripe_reports' );
 define( 'LFSSR_STRIPETESTKEY', 'sk_test_4eC39HqLyjWDarjtT1zdp7dc' );
@@ -53,8 +53,9 @@ require_once( LFSSR_DIR . '/vendor/autoload.php' );
 require_once( LFSSR_DIR . '/inc/general.php' );
 
 
+
 function lfssr_add_styles() {
-	wp_enqueue_style( 'lfs', LFSSR_URL . '/assets/lechoso.css' );
+	wp_enqueue_style( 'lfs', LFSSR_URL . '/assets/lechoso.min.css' );
 }
 
 
@@ -70,7 +71,7 @@ if ( !get_option( 'lfssr_stripe' ) ) {
 	$payout_table_classes = 'table--payouts plugin-needs-settings';
 } else {
 	$plugin_needs_settings = 0;
-	$payout_table_classes = 'table--payouts';
+	$payout_table_classes = 'table--payouts on-dark-background-color';
 }
 
 if ( $stripe_options['lfssr_stripe_api_key'] ) {
@@ -214,7 +215,7 @@ if ( !function_exists( 'lfssr_render_payout_rows' ) ) {
 
 		foreach ( $get_recent_payouts->data as $porow ) {
 			$trow = '<tr class="payout-row status-' . $porow->status . '" id="' . $porow->id . '">';
-			$trow .= '<td data-title="Status"><span class="status-' . $porow->status . '">' . $porow->status . '</td>';
+			$trow .= '<td data-title="Status"><span class="pill__status--' . $porow->status . '">' . $porow->status . '</td>';
 			$trow .= '<td data-title="Date">' . gmdate( 'm/d/Y', $porow->arrival_date ) . '</td>';
 			$trow .= '<td data-title="Amount">' . money_format( '%n', $porow->amount/100 ) . '</td>';
 			$trow .= '<td data-title="Details"><span class="js-payout-id-short">&hellip;'.lfssr_display_last_five( $porow->id ).'</span></td>';
@@ -231,7 +232,7 @@ if ( !function_exists( 'lfssr_render_payout_rows' ) ) {
 // Page: Stripe Reports
 //
 function lfssr_menu_page_display() {
-	global $stripe_options, $plugin_needs_settings, $payout_table_classes;
+	global $lfs_plugin, $stripe_options, $plugin_needs_settings, $payout_table_classes;
 
 	if ( !current_user_can( LFSSR_CAP ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
@@ -239,60 +240,69 @@ function lfssr_menu_page_display() {
 	?>
 
 	<div class="wrap">
-		<h1 id="lfssr-title"><?php esc_attr_e( 'Stripe Reports', 'lfs_stripe_reports' ); ?></h1>
-		<div id="lfssr-error-wrap"></div>
-		<div id="lfssr-main">
-			<?php if ( $plugin_needs_settings == 1 ) {
-				echo '<p>The table below shows simulated payouts. Please <a href="admin.php?page=lfs-stripe-reports-settings">set your API Key and Version</a> to view your live data.</p>';
-			} else {
-				echo '<p><strong>Your 5 most recent Payouts</strong></p>';
-			} ?>
-			<table class="<?php echo $payout_table_classes; ?>">
-				<thead>
-					<tr class="head-row">
-						<th scope="col" class="manage-column column-status">Status</th>
-						<th scope="col" class="manage-column column-date">Date</th>
-						<th scope="col" class=" column-amount num">Amount</th>
-						<th scope="col" class=" column-id">Payout ID</th>
-						<th scope="col" class="manage-column column-download">&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php lfssr_render_payout_rows(); ?>
-					<tr class="micro-row">
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="lfs-page-wrapper">
+			<div class="lfs-page-content">
+				<h1 id="lfssr-title"><?php esc_attr_e( 'Stripe Reports', 'lfs_stripe_reports' ); ?></h1>
+				<div id="lfssr-error-wrap"></div>
+				<div id="lfssr-main">
+					<?php if ( $plugin_needs_settings == 1 ) {
+						echo '<p>The table below shows simulated payouts. Please <a href="admin.php?page=lfs-stripe-reports-settings">set your API Key and Version</a> to view your live data.</p>';
+					} else {
+						echo '<p><strong>Your 5 most recent Payouts</strong></p>';
+					} ?>
+					<table class="<?php echo $payout_table_classes; ?>">
+						<thead>
+							<tr class="head-row">
+								<th scope="col" class="manage-column column-status">Status</th>
+								<th scope="col" class="manage-column column-date">Date</th>
+								<th scope="col" class=" column-amount num">Amount</th>
+								<th scope="col" class=" column-id">Payout ID</th>
+								<th scope="col" class="manage-column column-download">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php lfssr_render_payout_rows(); ?>
+							<tr class="micro-row">
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
 
-			<img class="powered-by" src="<?php echo LFSSR_URL . '/assets/powered_by_stripe@2x.png'; ?>" alt="Powered by Stripe" width="119" />
-		</div>
+					<img class="powered-by" src="<?php echo LFSSR_URL . '/assets/powered_by_stripe@2x.png'; ?>" alt="Powered by Stripe" width="119" />
+				</div>
 
 
-		<br class="clear" />
-		<h3>Helpful Links</h3>
-		<p><a href="admin.php?page=lfs-stripe-reports-settings">Settings</a> | <a href="https://dashboard.stripe.com/">Stripe Dashboard</a></p>
+				<br class="clear" />
+				<h2>Helpful Links</h2>
+				<p><a href="admin.php?page=lfs-stripe-reports-settings">Settings</a> | <a href="https://dashboard.stripe.com/">Stripe Dashboard</a></p>
 
-		<br class="clear" />
+				<br class="clear" />
 
-		<?php if( LFS_ENV === 'dev' ) { ?>
-			<div class="debug">
-				<h4>Debug</h4>
-				<pre>LFS_ENV: <?php echo LFS_ENV; ?></pre>
-				<pre>LFSSR_VER: <?php echo LFSSR_VER; ?></pre>
-				<pre>$plugin_needs_settings: <?php echo $plugin_needs_settings; ?></pre>
-				<pre>key: <?php echo $stripe_options['lfssr_stripe_api_key']; ?></pre>
-				<pre>ver: <?php echo $stripe_options['lfssr_stripe_api_ver']; ?></pre>
-				<pre>tz: <?php echo get_option( 'timezone_string' ); ?></pre>
-				<pre>curr_tz: <?php echo date_default_timezone_get(); ?></pre>
-				<pre><?php // lfssr_render_payout_rows(); ?></pre>
-				<pre><?php // echo $get_recent_payouts; ?></pre>
-			</div>
-		<?php } ?>
+				<?php if( LFS_ENV === 'dev' ) { ?>
+					<div class="debug">
+						<?php $format_test = 1234.56; ?>
+						<h3>Debug</h3>
+						<pre>LFS_ENV: <?php echo LFS_ENV; ?></pre>
+						<pre>LFSSR_VER: <?php echo LFSSR_VER; ?></pre>
+						<pre>$plugin_needs_settings: <?php echo $plugin_needs_settings; ?></pre>
+						<pre>key: <?php echo $stripe_options['lfssr_stripe_api_key']; ?></pre>
+						<pre>ver: <?php echo $stripe_options['lfssr_stripe_api_ver']; ?></pre>
+						<pre>money format number: <?php echo $format_test; ?></pre>
+						<pre>money format: <?php echo money_format( '%n', $format_test ); ?></pre>
+						<pre>tz: <?php echo get_option( 'timezone_string' ); ?></pre>
+						<pre>curr_tz: <?php echo date_default_timezone_get(); ?></pre>
+						<pre><?php // lfssr_render_payout_rows(); ?></pre>
+						<pre><?php // echo $get_recent_payouts; ?></pre>
+					</div>
+				<?php } ?>
+
+				<p class="footer"><span><?php echo 'Running '.$lfs_plugin['Version'].'. &copy;'.date( 'Y' ).' '.$lfs_plugin['Author'].'. Stay clothed.'; ?></span></p>
+			</div><!-- /.lfs-page-content -->
+		</div><!-- /.lfs-page-wrapper -->
 	</div>
 
 	<?php

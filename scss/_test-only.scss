@@ -1,0 +1,25 @@
+body.style-tests {
+	background-color: $oc-gray-0;
+	color: $text-admin-light;
+	font-family: $fonts-test;
+
+	.toc {
+		font-size: 12px;
+		margin-bottom: $space*4;
+	}
+
+}
+
+.test-component {
+	background-color: #fff;
+	border: 1px solid $oc-gray-2;
+	border-radius: $space*2;
+	margin: 0 $space $space*2;
+	padding: $space $space*4;
+}
+
+div[class^='on-'] {
+	margin-bottom: 1em;
+	padding: 0.75em 0.5em;
+	border-radius: 10px;
+}

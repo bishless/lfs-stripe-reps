@@ -9,23 +9,62 @@
 	],
 "creatorBuild": "29156",
 "files": {
-	"/assets/lechoso.css": {
+	"/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.gitignore",
+		"oF": 0
+		},
+	"/assets/footer.png": {
+		"ft": 32768,
+		"iS": 6350,
+		"oA": 0,
+		"oAP": "/assets/footer.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/assets/lechoso-test.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/assets/lechoso.min.css",
+		"oAP": "/assets/lechoso-test.min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"/assets/lechoso.css.map": {
+	"/assets/lechoso-test.css.map": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/assets/lechoso.css.map",
+		"oAP": "/assets/lechoso-test.css.map",
 		"oF": 0
+		},
+	"/assets/lechoso.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/assets/lechoso.min.min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/assets/logomark__stripe-reps.omg.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/logomark__stripe-reps.omg.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"/assets/logomark__stripe-reps.svg": {
 		"ft": 2097152,
@@ -123,6 +162,84 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"/scss/_base.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_base.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"/scss/_open-color.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_open-color.css",
+		"oF": 1,
+		"oS": 3,
+		"uL": 1
+		},
+	"/scss/_status.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_status.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"/scss/_tables-orig.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_tables-orig.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"/scss/_tables.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_tables.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"/scss/_test-only.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/assets/_test-only.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"/scss/_vars.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -136,18 +253,49 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"/scss/lechoso-test.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 3,
+		"dS": 1,
+		"ft": 4,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "/assets/lechoso-test.css",
+		"oF": 0,
+		"oS": 2,
+		"uL": 1
+		},
 	"/scss/lechoso.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 3,
 		"dS": 0,
 		"ft": 4,
-		"ma": 1,
+		"ma": 0,
 		"oA": 0,
-		"oAP": "/assets/lechoso.css",
+		"oAP": "/assets/lechoso.min.css",
 		"oF": 2,
 		"oS": 3,
 		"uL": 1
+		},
+	"/style-tests.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/style-tests.html",
+		"oF": 0
+		},
+	"/style-tests.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/style-tests.html",
+		"oF": 0,
+		"oS": 1
 		},
 	"/vendor": {
 		"ft": 65536,

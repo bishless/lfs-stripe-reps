@@ -1,0 +1,46 @@
+
+span[class*='pill__status--'] {
+	$rad: 4px;
+	border-radius: $rad;
+	font-size: 0.7em;
+	font-weight: bold;
+	line-height: 0.9;
+	padding: $space/2 $space;
+	text-transform: uppercase;
+
+	& + & {
+		margin-left: $rad;
+	}
+}
+
+
+
+.on-dark-background-color {
+	background-color: $color-admin-dark;
+
+	span[class*='pill__status--'] {
+		background-color: $oc-gray-3;
+	}
+
+	span.pill__status--paid { color: $color-status-paid; }
+	span.pill__status--pending,
+	span.pill__status--in_transit { color: $color-status-pending; }
+	span.pill__status--canceled,
+	span.pill__status--cancelled { color: $color-status-canceled; }
+	span.pill__status--failed { color: $color-status-failed; }
+}
+
+.on-light-background-color {
+	background-color: $oc-gray-1;
+
+	span[class*='pill__status--'] {
+		color: rgba(0,0,0,.4);
+	}
+
+	span.pill__status--paid { background-color: $oc-green-5; }
+	span.pill__status--pending,
+	span.pill__status--in_transit { background-color: $oc-yellow-5; }
+	span.pill__status--canceled,
+	span.pill__status--cancelled { background-color: $oc-orange-5; }
+	span.pill__status--failed { background-color: $oc-red-5; }
+}

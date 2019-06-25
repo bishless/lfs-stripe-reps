@@ -1,0 +1,139 @@
+
+table {
+	/*width: 100%;*/
+	border: none;
+	border-collapse: collapse;
+	border-spacing: 0;
+	min-width: 25vw;
+	text-align: left;
+
+	caption {
+		caption-side: bottom;
+		color: $oc-gray-8;
+		font-style: italic;
+	}
+}
+td,
+th {
+	vertical-align: middle;
+	padding: 1.2rem 0.4rem;
+}
+
+thead {
+	border-bottom: 2px solid $oc-gray-3;
+}
+
+tfoot {
+	border-top: 2px solid $oc-gray-3;
+}
+
+
+@supports (font-feature-settings: lnum) {
+	table {
+		font-feature-settings: lnum tnum;
+	}
+}
+@supports (font-variant-numeric: lining-nums tabular-nums) {
+	table {
+		font-variant-numeric: lining-nums tabular-nums;
+	}
+}
+
+table.table--payouts {
+	// background: $rgba-primary-3;
+	border: none;
+	border-collapse: collapse;
+	border-radius: 6px;
+	border-spacing: 0;
+	// font-family: $fonts-lfs;
+	margin-bottom: 20px;
+
+	caption {
+		caption-side: bottom;
+	}
+
+	tr {
+		transition: background 0.3s, box-shadow 0.3s;
+
+		&:hover {
+			background-color: rgba(0,0,0,0.1);
+
+			td { color: $oc-gray-9; }
+		}
+
+		&.micro-row {
+			font-size: 4px;
+			line-height: .5;
+		}
+
+		&.status-pending,
+		&.status-in_transit {
+			border-bottom: 1px solid $color-status-pending;
+			font-style: italic;
+
+			.link--csv {
+				display: none;
+			}
+		}
+		&.status-canceled {
+			border-bottom: 1px dashed $color-status-canceled;
+		}
+		&.status-failed {
+			border-bottom: 2px solid $color-status-failed;
+		}
+
+	}
+
+	th {
+		-webkit-font-smoothing: antialiased;
+		padding: 1em;
+		color: rgba(0,0,0,0.5);
+		text-shadow: 0 0 1px rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		font-size: 1em;
+	}
+
+	td {
+		color: $oc-gray-7;
+		padding: 0.7em 1em 0.7em 1.15em;
+		text-shadow: 0 0 1px rgba(255,255,255,0.2);
+		font-size: 1.1em;
+	}
+}
+
+table.table--payouts.plugin-needs-settings {
+	background: $rgba-gray-disabled;
+
+	.link--csv { display: none; }
+}
+
+.transfer-details tbody td:last-child {
+	font-weight: bold;
+}
+
+.transfer-row {
+	font-style: italic;
+}
+
+.payout-row td:nth-child(1) {
+	text-align: center;
+}
+
+.head-row th:nth-child(3)
+.head-row th:nth-child(4),
+.charge-row td:nth-child(2),
+.transfer-row td:nth-child(2),
+.payout-row td:nth-child(3),
+.payout-row td:nth-child(4) {
+	text-align: right !important;
+}
+
+.payout-row td:nth-child(3) {
+	font-weight: bold;
+}
+
+.refund-row {
+	font-style: italic;
+	background-color: rgba(255,0,0,0.1);
+	color: #900;
+}
