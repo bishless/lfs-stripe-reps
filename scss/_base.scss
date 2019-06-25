@@ -4,9 +4,9 @@ body {
 	font-weight: 400;
 }
 
-.text-center {
-	text-align: center;
-}
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
 
 div[class^='on-'] {
 	margin-bottom: 1em;
@@ -82,4 +82,9 @@ section {
 	text-align: center;
 
 	// span { display: none; }
+}
+.dashboard-footer {
+	color: $oc-gray-5;
+	font-size: 0.8em;
+	text-align: right;
 }

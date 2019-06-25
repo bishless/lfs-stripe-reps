@@ -3,6 +3,16 @@
 mixin pill(status)
   span(class='pill__status--' + status)= status
 
+mixin miniTableRow(status, date, amount, shortid, fullid)
+  tr(class="payout-row status-#{status}", id=fullid)
+    td
+      span.pill__status--status= status
+    td= date
+    td= amount
+    td
+      span.link--csv
+        a(class="button", href="https://pace.test/wp-content/plugins/lfs-stripe-reps/dl-csv.php?pid=#{fullid}&amp;co=pace&amp;a=&amp;v=", title="Download CSV")= shortid
+
 doctype html
 html(lang="en")
   head
@@ -60,6 +70,11 @@ html(lang="en")
                 td 12
                 td 8.9
                 td 10
+          h5 Payout-like Table - missing settings
+          table(class="table--payouts plugin-needs-settings")
+            tbody
+              +miniTableRow("paid", "05/17", "$138,664.29", "0lgVd", "tr_162c122eZvKYlo2CE6y0lgVd")
+              +miniTableRow("paid", "05/16", "$43,551.59", "E9vOn", "tr_162FsH2eZvKYlo2CEj6E9vOn")
           h5 Payout-like Table
           table(class="table--payouts on-light-background-color")
             caption Payout-like Table

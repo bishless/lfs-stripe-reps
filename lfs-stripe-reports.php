@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.3.0
+ * Version: 1.3.2
  * Author: Lechoso Forestry Service
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -60,7 +60,10 @@ require_once( LFSSR_DIR . '/inc/general.php' );
 
 
 function lfssr_add_styles() {
-	wp_enqueue_style( 'lfs', LFSSR_URL . '/assets/lechoso.min.css' );
+	$screen = get_current_screen();
+	if ( ( 'dashboard' === $screen->id ) OR ( 'toplevel_page_lfs-stripe-reports' === $screen->id ) ) {
+		wp_enqueue_style( 'lfs', LFSSR_URL . '/assets/lechoso.min.css' );
+	}
 }
 
 
@@ -212,9 +215,9 @@ if ( !function_exists( 'lfssr_render_payout_rows' ) ) {
 		}
 		// $get_recent_payouts = \Stripe\Payout::all( array( "limit" => 5 ) );
 
-		$stripe_fields = '<input type="hidden" name="api" value="' . $stripe_options['lfssr_stripe_api_key'] . '"><input type="hidden" name="ver" value="' . $stripe_options['lfssr_stripe_api_ver'] . '" />';
+		// $stripe_fields = '<input type="hidden" name="api" value="' . $stripe_options['lfssr_stripe_api_key'] . '"><input type="hidden" name="ver" value="' . $stripe_options['lfssr_stripe_api_ver'] . '" />';
 
-		foreach ( $get_recent_payouts->data as &$porow ) {
+		foreach ( $get_recent_payouts->data as $porow ) {
 			$trow = '<tr class="payout-row status-' . $porow->status . '" id="' . $porow->id . '">';
 			$trow .= '<td data-title="Status"><span class="pill__status--' . $porow->status . '">' . $porow->status . '</td>';
 			$trow .= '<td data-title="Date">' . gmdate( 'm/d/Y', $porow->arrival_date ) . '</td>';
@@ -251,14 +254,14 @@ if ( !function_exists( 'lfssr_render_mini_payout_rows' ) ) {
 		}
 		// $get_recent_payouts = \Stripe\Payout::all( array( "limit" => 5 ) );
 
-		$stripe_fields = '<input type="hidden" name="api" value="' . $stripe_options['lfssr_stripe_api_key'] . '"><input type="hidden" name="ver" value="' . $stripe_options['lfssr_stripe_api_ver'] . '" />';
+		// $stripe_fields = '<input type="hidden" name="api" value="' . $stripe_options['lfssr_stripe_api_key'] . '"><input type="hidden" name="ver" value="' . $stripe_options['lfssr_stripe_api_ver'] . '" />';
 
 		foreach ( $get_recent_payouts->data as &$porow ) {
 			$trow = '<tr class="payout-row status-' . $porow->status . '" id="' . $porow->id . '">';
-			$trow .= '<td data-title="Status"><span class="pill__status--' . $porow->status . '">' . $porow->status . '</td>';
-			$trow .= '<td data-title="Date">' . gmdate( 'm/d', $porow->arrival_date ) . '</td>';
-			$trow .= '<td data-title="Amount">' . money_format( '%n', $porow->amount/100 ) . '</td>';
-			$trow .= '<td data-title="Download"><span class="link--csv"><a class="button" href="' . LFSSR_URL . 'dl-csv.php?pid=' . $porow->id . '&co=' . $host . '&a=' . $stripe_options['lfssr_stripe_api_key'] .'&v=' . $stripe_options['lfssr_stripe_api_ver'] .'" title="Download CSV">&hellip;'.lfssr_display_last_five( $porow->id ).'</a></span></td>';
+			$trow .= '<td><span class="pill__status--' . $porow->status . '">' . $porow->status . '</td>';
+			$trow .= '<td><span title="'.gmdate( 'm/d/Y', $porow->arrival_date ).'">' . gmdate( 'm/d', $porow->arrival_date ) . '</span></td>';
+			$trow .= '<td>' . money_format( '%n', $porow->amount/100 ) . '</td>';
+			$trow .= '<td><span class="link--csv"><a class="button" href="' . LFSSR_URL . 'dl-csv.php?pid=' . $porow->id . '&co=' . $host . '&a=' . $stripe_options['lfssr_stripe_api_key'] .'&v=' . $stripe_options['lfssr_stripe_api_ver'] .'" title="Download CSV">&hellip;'.lfssr_display_last_five( $porow->id ).'</a></span></td>';
 			$trow .= '</tr>';
 			echo $trow;
 		}
@@ -334,7 +337,7 @@ function lfssr_menu_page_display() {
 					</section>
 				<?php } ?>
 
-				<p class="footer"><span><?php echo 'Running '.$lfs_plugin['Version'].'. &copy;'.date( 'Y' ).' '.$lfs_plugin['Author'].'.'; ?></span></p>
+				<p class="footer"><span><?php echo 'Plugin Version: '.$lfs_plugin['Version'].'. &copy;'.date( 'Y' ).' '.$lfs_plugin['Author'].'.'; ?></span></p>
 			</div><!-- /.lfs-page-content -->
 		</div><!-- /.lfs-page-wrapper -->
 	</div>
@@ -391,22 +394,22 @@ function lfssr_dashboard_widget() {
 }
 
 function lfssr_dashboard_widget_latest_payout_handler() {
-	global $payout_table_classes; ?>
+	global $payout_table_classes, $lfs_plugin;
+	// TODO: add warning if no settings are set...
+	?>
 
-	<table class="<?php echo $payout_table_classes; ?>">
+
+	<table class="<?php echo $payout_table_classes; ?> lfs-dashboard-table">
 		<tbody>
 			<?php lfssr_render_mini_payout_rows(2); ?>
-			<tr class="micro-row">
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
+			<tr>
+				<td colspan="4" class="text-center"><a class="button" href="admin.php?page=lfs-stripe-reports">View Latest 5</a></td>
 			</tr>
 		</tbody>
 	</table>
 	<p class="text-center"><img src="<?php echo LFSSR_URL .'/assets/powered_by_stripe@2x.png'; ?>" alt="Powered by Stripe" width="119" /></p>
-	<p><img style="float:left;margin:0 8px 8px 0" src="<?php echo LFSSR_URL .'/assets/icon-128x128.png'; ?>" alt="LFS Stripe Reports logo" width="50" height="50">Note: We're showing two payouts just in case the latest payout is <em>in_transit</em>.</p>
-	<br />
+	<!-- <p><img style="float:left;margin:0 8px 8px 0" src="<?php // echo LFSSR_URL .'/assets/icon-128x128.png'; ?>" alt="LFS Stripe Reports logo" width="50" height="50">Note: .</p> -->
+	<p class="dashboard-footer"><em><?php echo 'Plugin Version: '.$lfs_plugin['Version']; ?></em></p>
 	<?php
 }
 

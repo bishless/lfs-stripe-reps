@@ -155,9 +155,24 @@ table.table--payouts.on-dark-background-color {
 
 
 table.table--payouts.plugin-needs-settings {
-	background: $rgba-gray-disabled;
+	background: $oc-gray-3;
+	border: 2px dashed $oc-red-4;
+
+	td {
+		color: transparent;
+		text-shadow: 0 0 5px #000;
+	}
 
 	.link--csv { display: none; }
+}
+
+table.lfs-dashboard-table {
+	tr.status-in_transit {
+		display: none;
+	}
+	tr.status-paid + tr.status-paid {
+		display: none; // give illusion of only latest paid payout
+	}
 }
 
 // .transfer-details tbody td:last-child {
