@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name: LFS Stripe Reports
  * Description: View and download custom reports for payouts your organization has collected via Stripe.
- * Version: 1.3.2
+ * Version: 1.4.0
  * Author: Lechoso Forestry Service
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -60,9 +60,14 @@ require_once( LFSSR_DIR . '/inc/general.php' );
 
 
 function lfssr_add_styles() {
+	global $lfs_plugin;
 	$screen = get_current_screen();
-	if ( ( 'dashboard' === $screen->id ) OR ( 'toplevel_page_lfs-stripe-reports' === $screen->id ) ) {
-		wp_enqueue_style( 'lfs', LFSSR_URL . '/assets/lechoso.min.css' );
+	if ( 'dashboard' === $screen->id ) {
+		wp_enqueue_style( 'lfssr', LFSSR_URL . 'assets/lechoso.min.css' );
+	}
+	if ( 'toplevel_page_lfs-stripe-reports' === $screen->id ) {
+		wp_enqueue_script( 'lfssr-script', LFSSR_URL . 'assets/lfs-stripe-reports.min.js', array(), $lfs_plugin['Version'], true );
+		wp_enqueue_style( 'lfssr', LFSSR_URL . 'assets/lechoso.min.css' );
 	}
 }
 
@@ -146,6 +151,17 @@ function lfssr_initialize_plugin_options() {
 		)
 	);
 
+	add_settings_field(
+		'lfssr_stripe_report_count',
+		'Stripe Reports to Retrieve',
+		'lfssr_setting_reportcount',
+		'lfs-stripe-reports-settings',
+		'lfssr_main_section',
+		array(
+			'label_for' => 'lfssr_stripe_report_count'
+		)
+	);
+
 	register_setting( 'lfssr_options', 'lfssr_stripe', 'lfssr_options_validate' );
 
 } // end lfssr_initialize_plugin_options
@@ -153,16 +169,13 @@ function lfssr_initialize_plugin_options() {
 
 function lfssr_create_menu_page() {
 
-	// menu icon
-	$icon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNi45ODQgOC4xN2MwLS42LjUwNC0uODMyIDEuMzM5LS44MzIgMS4xOTcgMCAyLjcwOC4zNTQgMy45MDUuOTg1VjQuNzA4QzEwLjkyMSA0LjIgOS42MyA0IDguMzIzIDQgNS4xMjYgNCAzIDUuNjMgMyA4LjM1NGMwIDQuMjQ2IDUuOTg0IDMuNTcgNS45ODQgNS40IDAgLjcwOC0uNjMuOTM4LTEuNTEyLjkzOC0xLjMwNyAwLTIuOTc2LS41MjMtNC4yOTktMS4yM3YzLjY2MWMxLjQ2NS42MTUgMi45NDUuODc3IDQuMy44NzdDMTAuNzQ3IDE4IDEzIDE2LjQxNSAxMyAxMy42NjJjLS4wMTYtNC41ODUtNi4wMTYtMy43Ny02LjAxNi01LjQ5M3oiIGZpbGw9IiM5RkEzQTgiLz48cGF0aCBmaWxsPSIjNUM3Q0ZBIiBkPSJNMTEgMGg3djd6Ii8+PC9nPjwvc3ZnPg==)';
-
 	add_menu_page(
 		'Stripe Reports',
 		'Stripe Reports',
 		LFSSR_CAP, // should this be a new custom role?
 		'lfs-stripe-reports', // menu
 		'lfssr_menu_page_display',
-		$icon
+		LFSSR_URL . 'assets/logomark__stripe-reps.min.svg'
 	);
 	add_submenu_page(
 		'lfs-stripe-reports', // parent slug
@@ -290,9 +303,9 @@ function lfssr_menu_page_display() {
 					<?php if ( $plugin_needs_settings == 1 ) {
 						echo '<p>The table below shows simulated payouts. Please <a href="admin.php?page=lfs-stripe-reports-settings">set your API Key and Version</a> to view your live data.</p>';
 					} else {
-						echo '<p><strong>Your 5 most recent Payouts</strong></p>';
+						echo '<p><strong>Your ' . $stripe_options['lfssr_stripe_report_count'] . ' most recent Payouts</strong></p>';
 					} ?>
-					<table class="<?php echo $payout_table_classes; ?>">
+					<table id="js_target_table" class="<?php echo $payout_table_classes; ?>">
 						<thead>
 							<tr class="head-row">
 								<th scope="col" class="manage-column column-status">Status</th>
@@ -303,13 +316,22 @@ function lfssr_menu_page_display() {
 							</tr>
 						</thead>
 						<tbody>
-							<?php lfssr_render_payout_rows(5); ?>
+							<?php if ( $stripe_options['lfssr_stripe_report_count'] ) {
+								lfssr_render_payout_rows( $stripe_options['lfssr_stripe_report_count'] );
+							} else {
+								lfssr_render_payout_rows( 5 );
+							} ?>
 							<tr class="micro-row">
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="text-center" colspan="5">
+									<button id="js_theme_toggle">dark/light</button>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -327,6 +349,9 @@ function lfssr_menu_page_display() {
 						<?php $format_test = 1234.56; ?>
 						<h3>Debug</h3>
 						<pre>LFS_ENV: <span class="val"><?php echo LFS_ENV; ?></span></pre>
+						<!-- <pre>LFSSR_REPORTCOUNT: <span class="val"><?php // echo LFSSR_REPORTCOUNT; ?></span></pre>
+						<pre>LFSSR_REPORTCOUNT defined? ... <span class="val"><?php // echo defined( 'LFSSR_REPORTCOUNT' ); ?></span></pre> -->
+						<pre>report count: <span class="val"><?php echo $stripe_options['lfssr_stripe_report_count']; ?></span>
 						<pre>money format number: <span class="val"><?php echo $format_test; ?></span></pre>
 						<pre>money format: <span class="val"><?php echo money_format( '%n', $format_test ); ?></span></pre>
 						<pre>tz: <span class="val"><?php echo get_option( 'timezone_string' ); ?></span></pre>
@@ -369,6 +394,13 @@ function lfssr_options_page_display() {
 					<th scope="row"><?php echo __( 'Stripe API Version', 'lfs-stripe-reports' ); ?></th>
 					<td><input class="regular-text" type="text" name="lfssr_stripe[lfssr_stripe_api_ver]" id="lfssr_stripe[lfssr_stripe_api_ver]" value="<?php echo $stripe_options['lfssr_stripe_api_ver']; ?>" /></td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><?php echo __( 'How many reports to retrieve?', 'lfs-stripe-reports' ); ?></th>
+					<td>
+						<input type="number" name="lfssr_stripe[lfssr_stripe_report_count]" id="lfssr_stripe[lfssr_stripe_report_count]" min="5" max="30" step="5" value="<?php echo $stripe_options['lfssr_stripe_report_count']; ?>">
+						<p class="description"><?php echo __( 'Lower numbers will provide faster performance.', 'lfs-stripe-reports' ); ?></p>
+					</td>
+				</tr>
 			</table>
 
 			<?php submit_button(); ?>
@@ -394,7 +426,7 @@ function lfssr_dashboard_widget() {
 }
 
 function lfssr_dashboard_widget_latest_payout_handler() {
-	global $payout_table_classes, $lfs_plugin;
+	global $payout_table_classes, $lfs_plugin, $stripe_options;
 	// TODO: add warning if no settings are set...
 	?>
 
@@ -403,7 +435,7 @@ function lfssr_dashboard_widget_latest_payout_handler() {
 		<tbody>
 			<?php lfssr_render_mini_payout_rows(2); ?>
 			<tr>
-				<td colspan="4" class="text-center"><a class="button" href="admin.php?page=lfs-stripe-reports">View Latest 5</a></td>
+				<td colspan="4" class="text-center"><a class="button" href="admin.php?page=lfs-stripe-reports">View Latest <?php echo $stripe_options['lfssr_stripe_report_count']; ?></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -412,7 +444,6 @@ function lfssr_dashboard_widget_latest_payout_handler() {
 	<p class="dashboard-footer"><em><?php echo 'Plugin Version: '.$lfs_plugin['Version']; ?></em></p>
 	<?php
 }
-
 
 
 // Sanitize and validate input. Accepts an array, returns a sanitized array

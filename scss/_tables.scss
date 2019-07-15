@@ -1,20 +1,25 @@
 
 table {
-	/*width: 100%;*/
-	// background-color: $oc-gray-0;
 	border: none;
 	border-collapse: collapse;
-	color: $oc-gray-7;
 	border-spacing: 0;
-	min-width: 25vw;
+	// min-width: 25vw;
 	text-align: left;
 
 	caption {
 		caption-side: bottom;
-		color: $oc-gray-8;
 		font-style: italic;
 	}
 }
+
+table:not([class*='on-']) {
+	color: $oc-gray-7;
+
+	caption {
+		color: $oc-gray-8;
+	}
+}
+
 td,
 th {
 	vertical-align: middle;
@@ -41,7 +46,8 @@ tfoot {
 	}
 }
 
-table.table--payouts { // default, on-light-background-color
+
+table.table--payouts { // just geometry and type -- no color info
 	border: none;
 	border-collapse: collapse;
 	border-radius: 4px;
@@ -52,20 +58,11 @@ table.table--payouts { // default, on-light-background-color
 
 	caption {
 		caption-side: bottom;
-		color: $oc-gray-7;
 		padding-top: $space;
 	}
 
 	tr {
 		transition: background 0.3s, box-shadow 0.3s;
-
-		&:hover {
-			// background-color: rgba(0,0,0,0.1);
-
-			td {
-				// color: $oc-gray-9;
-			}
-		}
 
 		&.micro-row {
 			font-size: 4px;
@@ -76,20 +73,11 @@ table.table--payouts { // default, on-light-background-color
 
 		&.status-pending,
 		&.status-in_transit {
-			border-bottom: 1px solid $oc-yellow-7;
 			font-style: italic;
-
-			td { color: $oc-gray-5; }
 
 			.link--csv {
 				display: none;
 			}
-		}
-		&.status-canceled {
-			border-bottom: 1px dashed $color-status-canceled;
-		}
-		&.status-failed {
-			border-bottom: 2px solid $color-status-failed;
 		}
 
 	}
@@ -103,21 +91,49 @@ table.table--payouts { // default, on-light-background-color
 
 	th {
 		-webkit-font-smoothing: antialiased;
-		// color: rgba(0,0,0,0.5);
-		// text-shadow: 0 0 1px rgba(0,0,0,0.2);
 		text-transform: uppercase;
 		font-size: 1em;
 	}
 
 	td {
-		// color: $oc-gray-7;
-		// text-shadow: 0 0 1px rgba(255,255,255,0.2);
 		font-size: 1em;
 	}
 }
 
 
-table.table--payouts.on-dark-background-color {
+table.on-light-background-color {
+
+	caption {
+		color: $oc-gray-7;
+	}
+
+	tr {
+
+		&:hover {
+			background-color: rgba(0,0,0,0.1);
+
+			td {
+				color: $oc-gray-9;
+			}
+		}
+
+		&.status-pending,
+		&.status-in_transit {
+			border-bottom: 1px solid $oc-yellow-7;
+
+			td { color: $oc-gray-5; }
+		}
+		&.status-canceled {
+			border-bottom: 1px dashed $color-status-canceled;
+		}
+		&.status-failed {
+			border-bottom: 2px solid $color-status-failed;
+		}
+	}
+}
+
+
+table.on-dark-background-color {
 
 	tr {
 

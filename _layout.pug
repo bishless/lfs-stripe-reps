@@ -1,0 +1,27 @@
+- var author = "Lechoso Forestry Service";
+
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    title Style Tests for LFS Stripe Reports
+    block styles
+      link(rel='stylesheet', href='assets/lechoso-test.css')
+  body(class='style-tests')
+    .lfs-page-wrapper
+      .lfs-page-content
+        block content
+
+        block foot
+          p.footer
+            span
+              | &copy;2019 #{author}
+    block scripts
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+      //- script(src='assets/lfs-stripe-reports.js')
+      script(src='assets/style-tests.min.js')
+
+
+
+
+

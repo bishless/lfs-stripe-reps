@@ -17,6 +17,16 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/_layout.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"hM": 0,
+		"oA": 1,
+		"oAP": "/_layout.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"/assets/footer.png": {
 		"ft": 32768,
 		"iS": 6350,
@@ -78,6 +88,38 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/assets/lfs-stripe-reports.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/lfs-stripe-reports.min.js",
+		"oF": 2,
+		"sC": 3,
+		"tS": 1
+		},
+	"/assets/lfs-stripe-reports.min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/assets/lfs-stripe-reports.min.min.js",
+		"oF": 0,
+		"sC": 2,
+		"tS": 0
+		},
+	"/assets/logomark__stripe-reps.min.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/logomark__stripe-reps.min.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/assets/logomark__stripe-reps.omg.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -91,10 +133,10 @@
 	"/assets/logomark__stripe-reps.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 2,
-		"oAP": "/assets/logomark__stripe-reps.svg",
-		"oF": 0,
-		"opt": 0,
+		"oA": 0,
+		"oAP": "/assets/logomark__stripe-reps.min.svg",
+		"oF": 3,
+		"opt": 1,
 		"plM": 3758088159,
 		"prP": 0
 		},
@@ -108,6 +150,28 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"/assets/style-tests.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/style-tests.min.js",
+		"oF": 2,
+		"sC": 3,
+		"tS": 1
+		},
+	"/assets/style-tests.min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/assets/assets/style-tests.min.min.js",
+		"oF": 0,
+		"sC": 2,
+		"tS": 0
 		},
 	"/composer.json": {
 		"ft": 524288,

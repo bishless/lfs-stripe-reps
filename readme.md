@@ -16,15 +16,14 @@ Currently making use of custom role: 'stripe_reports' via [Members](https://word
 
 
 
-
-IDEA: **Dashboard Widget?** Just show latest payout. Download straight from the front page? (behind role check, of course)
-
 - [x] add submenu page for Options/settings
 - [x] get API key and API ver saving as settings
 - [x] actually read API key and API ver from db to render table rows
-- [ ] better styling for status 'pills'
+- [x] better styling for status 'pills'
 - [x] add 'no API key set' state in payout table
-- [ ] add 'no payouts' state in render_payout_rows
-- [ ] add error/no-connection state in render_payout_rows
+- [x] add 'no payouts' state in render_payout_rows
+- [x] add error/no-connection state in render_payout_rows
 - [ ] add instructions for Members dependency and role creation
 - [x] add plugin header info for use with Github Updater
+- [x] add dashboard widget w/ latest payout
+- [x] add Report Count settingg (and allow number of displayed reports to be changed based on that)

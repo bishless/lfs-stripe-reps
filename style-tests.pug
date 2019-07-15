@@ -1,194 +1,150 @@
-- var author = "Lechoso Forestry Service";
+//- style-tests.pug
+extends _layout.pug
 
 mixin pill(status)
-  span(class='pill__status--' + status)= status
+  span(class='pill__status--'+status)= status
 
+//- for table.plugin-needs-settings
 mixin miniTableRow(status, date, amount, shortid, fullid)
-  tr(class="payout-row status-#{status}", id=fullid)
+  tr(id=fullid, class='payout-row status-'+status)
     td
-      span.pill__status--status= status
+      span(class='pill__status--'+status)= status
     td= date
     td= amount
     td
       span.link--csv
-        a(class="button", href="https://pace.test/wp-content/plugins/lfs-stripe-reps/dl-csv.php?pid=#{fullid}&amp;co=pace&amp;a=&amp;v=", title="Download CSV")= shortid
+        a(class='button', href='https://pace.test/wp-content/plugins/lfs-stripe-reps/dl-csv.php?pid=#{fullid}&amp;co=pace&amp;a=&amp;v=', title='Download CSV')= shortid
 
-doctype html
-html(lang="en")
-  head
-    meta(charset='utf-8')
-    title Style Tests for LFS Stripe Reports
-    link(rel='stylesheet', href='assets/lechoso-test.css')
-  body(class='style-tests')
-    .lfs-page-wrapper
-      .lfs-page-content
-        h1 Style Tests for LFS Stripe Reports
-        h6 Table of Contents
-        ul.toc
-          li
-            a(href="#test-paras") Paragraphs
-          li
-            a(href="#test-headings") Headings
-          li
-            a(href="#test-lists") Lists
-          li
-            a(href="#test-tables") Tables
+//- for table.table--payouts
+mixin tableRow(status, date, amount, shortid, fullid, descrip)
+  tr(class='payout-row status-'+status, id=fullid)
+    td
+      span(class='pill__status--'+status)= status
+    td= date
+    td= amount
+    td
+      span.link--csv
+        a(class='button', href='#?pid='+fullid, title='Download CSV')= shortid
+    td= descrip
 
-        .test-component#test-paras
-          h3 Paragraphs
-          p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus consequuntur eius, saepe ullam! Itaque eos et veniam similique rerum dignissimos, voluptates ipsum fugiat deserunt ipsam suscipit, animi vel dolorum nobis!
+block content
+  h1 Style Tests for LFS Stripe Reports
+  h6 Table of Contents
+  ul.toc
+    li
+      a(href="#test-paras") Paragraphs
+    li
+      a(href="#test-headings") Headings
+    li
+      a(href="#test-lists") Lists
+    li
+      a(href="#test-tables") Tables
 
-        .test-component#test-headings
-          h3 Headings
+  .test-component#test-paras
+    h3 Paragraphs
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus consequuntur eius, saepe ullam! Itaque eos et veniam similique rerum dignissimos, voluptates ipsum fugiat deserunt ipsam suscipit, animi vel dolorum nobis!
 
-          h1 Heading 1
-          h2 Heading 2
-          h3 Heading 3
-          h4 Head 4
-          h5 H 5
-          h6 h6
+  .test-component#test-headings
+    h3 Headings
 
-        .test-component#test-lists
-          h3 Lists
-          ul
-            li one
-            li two
-            li three
+    h1 Heading 1
+    h2 Heading 2
+    h3 Heading 3
+    h4 Head 4
+    h5 H 5
+    h6 h6
 
-        .test-component#test-tables
-          h3 Tables
-          h5 Basic Table
-          table
-            caption Standard Table
-            thead
-              tr
-                th A
-                th B
-                th C
-            tbody
-              tr
-                td 12
-                td 8.9
-                td 10
-          h5 Payout-like Table - missing settings
-          table(class="table--payouts plugin-needs-settings")
-            tbody
-              +miniTableRow("paid", "05/17", "$138,664.29", "0lgVd", "tr_162c122eZvKYlo2CE6y0lgVd")
-              +miniTableRow("paid", "05/16", "$43,551.59", "E9vOn", "tr_162FsH2eZvKYlo2CEj6E9vOn")
-          h5 Payout-like Table
-          table(class="table--payouts on-light-background-color")
-            caption Payout-like Table
-            thead
-              tr
-                th status
-                th date
-                th amount
-                th details
-                th something
-            tbody
-              tr.payout-row.status-in_transit
-                td
-                  span.pill__status--in_transit in_transit
-                td 12/25/2017
-                td $120.12
-                td 02308 (c)
-                td Lorem ipsum
-              tr.payout-row.status-paid
-                td
-                  span.pill__status--paid paid
-                td 12/24/2017
-                td $1904.55
-                td 02306 (c)
-                td dolor sin amet
-              tr.payout-row.status-paid
-                td
-                  span.pill__status--paid paid
-                td 12/23/2017
-                td $908.55
-                td 02305 (c)
-                td dolor sin amet
-              tr.payout-row.status-canceled
-                td
-                  span.pill__status--canceled canceled
-                td 12/24/2017
-                td $7651.55
-                td 02303 (c)
-                td dolor sin amet
-              tr.payout-row.status-paid
-                td
-                  span.pill__status--paid paid
-                td 12/24/2017
-                td $1904.55
-                td 02306 (c)
-                td dolor sin amet
-              tr.payout-row.status-failed
-                td
-                  span.pill__status--failed failed
-                td 12/20/2017
-                td $239829812.01
-                td 02302 (c)
-                td hooj
-          h5 Payout-like Table in Green
-          table(class="table--payouts on-dark-background-color")
-            caption Payout-like Table
-            thead
-              tr
-                th status
-                th date
-                th amount
-                th details
-                th something
-            tbody
-              tr.payout-row.status-in_transit
-                td
-                  span.pill__status--in_transit in_transit
-                td 12/25/2017
-                td $120.12
-                td 02308 (c)
-                td Lorem ipsum
-              tr.payout-row.status-paid
-                td
-                  span.pill__status--paid paid
-                td 12/24/2017
-                td $1904.55
-                td 02306 (c)
-                td dolor sin amet
-              tr.payout-row.status-paid
-                td
-                  span.pill__status--paid paid
-                td 12/23/2017
-                td $908.55
-                td 02305 (c)
-                td dolor sin amet
-              tr.payout-row.status-canceled
-                td
-                  span.pill__status--canceled canceled
-                td 12/24/2017
-                td $7651.55
-                td
-                  a(class="button", href="#")= CSV
-                td dolor sin amet
+  .test-component#test-lists
+    h3 Lists
+    ul
+      li one
+      li two
+      li three
+
+  .test-component#test-tables
+    h3 Tables
+    h5 Basic Table
+    table
+      caption Standard Table
+      thead
+        tr
+          th A
+          th B
+          th C
+      tbody
+        tr
+          td 12
+          td 8.9
+          td 10
+    h5 Payout-like Table - missing settings
+    table(class="table--payouts plugin-needs-settings")
+      tbody
+        +miniTableRow("paid", "05/17", "$138,664.29", "0lgVd", "tr_162c122eZvKYlo2CE6y0lgVd")
+        +miniTableRow("paid", "05/16", "$43,551.59", "E9vOn", "tr_162FsH2eZvKYlo2CEj6E9vOn")
+    h5 Payout-like Table
+    table(class="table--payouts on-light-background-color")
+      caption Payout-like Table
+      thead
+        tr
+          th status
+          th date
+          th amount
+          th details
+          th something
+      tbody
+        +tableRow("in_transit", "12/25/2017", "$120.55", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        +tableRow("paid", "12/24/2017", "$1904.55", "02306", "tr_09230ssv09dw02306", "dolor sin amet")
+        +tableRow("paid", "12/23/2017", "$908.55", "02305", "tr_09230ssv09dw02305", "Lorem ipsum")
+        +tableRow("canceled", "12/23/2017", "$7651.55", "02301", "tr_09230ssv09dw02301", "Lorem ipsum")
+        +tableRow("failed", "12/22/2017", "$11120.55", "02291", "tr_09230ssv09dw02291", "Lorem ipsum")
+    h5 Payout-like Table in Green
+    table(class="table--payouts on-dark-background-color")
+      caption Payout-like Table
+      thead
+        tr
+          th status
+          th date
+          th amount
+          th details
+          th something
+      tbody
+        +tableRow("in_transit", "12/25/2017", "$120.55", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        +tableRow("paid", "12/24/2017", "$1904.55", "02306", "tr_09230ssv09dw02306", "dolor sin amet")
+        +tableRow("paid", "12/23/2017", "$908.55", "02305", "tr_09230ssv09dw02305", "Lorem ipsum")
+        +tableRow("canceled", "12/23/2017", "$7651.55", "02301", "tr_09230ssv09dw02301", "Lorem ipsum")
+        +tableRow("failed", "12/22/2017", "$11120.55", "02291", "tr_09230ssv09dw02291", "Lorem ipsum")
+    h5 Payout-like Table with theme switch?
+    p
+      button(id='js_theme_toggle')
+        | dark/light
+    table(id="js_target_table", class="table--payouts on-light-background-color")
+      caption Payout-like Table
+      thead
+        tr
+          th status
+          th date
+          th amount
+          th details
+          th something
+      tbody
+        +tableRow("in_transit", "12/25/2017", "$120.12", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        +tableRow("paid", "12/25/2017", "$120.12", "02307", "tr_09230ssv09dw02307", "dolor sin amet")
+        +tableRow("paid", "12/24/2017", "$1904.55", "02308", "tr_09230ssv09dw02304", "berries")
+        +tableRow("paid", "12/21/2017", "$908.31", "02299", "tr_09230ssv09dw02299", "apples")
+        +tableRow("paid", "12/18/2017", "$7651.57", "02296", "tr_09230ssv09dw02296", "stapler")
 
 
-        .test-component#test-status
-          h3 Status Pills
-          .on-light-background-color
-            p
-              each status in ['paid', 'in_transit', 'canceled', 'failed']
-                +pill(status)
-          .on-dark-background-color.has-green-background-color
-            p
-              each status in ['paid', 'in_transit', 'canceled', 'failed']
-                +pill(status)
-          .on-dark-background-color
-            p
-              each status in ['paid', 'in_transit', 'canceled', 'failed']
-                +pill(status)
-        p.footer
-          span
-            | &copy;2019 #{author}
-
-
-
-
-
+  .test-component#test-status
+    h3 Status Pills
+    .on-light-background-color
+      p
+        each status in ['paid', 'in_transit', 'canceled', 'failed']
+          +pill(status)
+    .on-dark-background-color.has-green-background-color
+      p
+        each status in ['paid', 'in_transit', 'canceled', 'failed']
+          +pill(status)
+    .on-dark-background-color
+      p
+        each status in ['paid', 'in_transit', 'canceled', 'failed']
+          +pill(status)
