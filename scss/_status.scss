@@ -19,8 +19,39 @@ span[class*='pill__status--'] {
 	background-color: $color-admin-dark;
 
 	span[class*='pill__status--'] {
-		background-color: $oc-gray-4;
+		// background-color: $oc-gray-4;
+		// color: rgba($oc-black, .4);
+		color: $color-admin-dark;
 	}
+
+	// span.pill__status--paid { color: $color-status-paid; }
+	// span.pill__status--pending,
+	// span.pill__status--in_transit {	color: $color-status-pending; }
+	// span.pill__status--canceled,
+	// span.pill__status--cancelled { color: $color-status-canceled; }
+	// span.pill__status--failed { color: $color-status-failed; }
+
+	span.pill__status--paid { background-color: rgba($oc-green-5, .7); }
+	span.pill__status--pending,
+	span.pill__status--in_transit { background-color: rgba($oc-yellow-5, .7); }
+	span.pill__status--canceled,
+	span.pill__status--cancelled { background-color: rgba($oc-orange-5, .7); }
+	span.pill__status--failed { background-color: rgba($oc-red-5, .7); }
+}
+
+.on-light-background-color {
+	background-color: $oc-gray-1;
+
+	span[class*='pill__status--'] {
+		background-color: rgba($oc-black, .05);
+	}
+
+	// span.pill__status--paid { background-color: $oc-green-5; }
+	// span.pill__status--pending,
+	// span.pill__status--in_transit { background-color: $oc-yellow-5; }
+	// span.pill__status--canceled,
+	// span.pill__status--cancelled { background-color: $oc-orange-5; }
+	// span.pill__status--failed { background-color: $oc-red-5; }
 
 	span.pill__status--paid { color: $color-status-paid; }
 	span.pill__status--pending,
@@ -28,19 +59,4 @@ span[class*='pill__status--'] {
 	span.pill__status--canceled,
 	span.pill__status--cancelled { color: $color-status-canceled; }
 	span.pill__status--failed { color: $color-status-failed; }
-}
-
-.on-light-background-color {
-	background-color: $oc-gray-1;
-
-	span[class*='pill__status--'] {
-		color: rgba(0,0,0,.4);
-	}
-
-	span.pill__status--paid { background-color: $oc-green-5; }
-	span.pill__status--pending,
-	span.pill__status--in_transit { background-color: $oc-yellow-5; }
-	span.pill__status--canceled,
-	span.pill__status--cancelled { background-color: $oc-orange-5; }
-	span.pill__status--failed { background-color: $oc-red-5; }
 }

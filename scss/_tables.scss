@@ -109,8 +109,10 @@ table.on-light-background-color {
 
 	tr {
 
+		border-bottom: 1px solid $oc-gray-3;
+
 		&:hover {
-			background-color: rgba(0,0,0,0.1);
+			// background-color: rgba(0,0,0,0.1);
 
 			td {
 				color: $oc-gray-9;
@@ -130,6 +132,18 @@ table.on-light-background-color {
 			border-bottom: 2px solid $color-status-failed;
 		}
 	}
+
+	.button {
+		color: $oc-gray-2;
+		border-color: transparent;
+		background-color: $oc-gray-7;
+		box-shadow: 0 1px 0 $oc-gray-9;
+
+		&:hover {
+			background-color: $oc-gray-8;
+			color: $oc-gray-1;
+		}
+	}
 }
 
 
@@ -137,8 +151,10 @@ table.on-dark-background-color {
 
 	tr {
 
+		border-bottom: 1px solid $oc-gray-8;
+
 		&:hover {
-			background-color: rgba($oc-gray-0,0.1);
+			// background-color: rgba($oc-gray-0,0.1);
 
 			td { color: $oc-gray-0; }
 		}
@@ -164,8 +180,25 @@ table.on-dark-background-color {
 	}
 
 	td {
-		color: $oc-gray-2;
+		color: $oc-gray-4;
 		text-shadow: 0 0 1px rgba($oc-gray-9,0.2);
+
+		&:nth-child(3) {
+			// font-weight: bold;
+			color: $oc-gray-2;
+		}
+	}
+
+	.button {
+		color: $oc-gray-7;
+		border-color: transparent;
+		background-color: $oc-gray-3;
+		box-shadow: 0 1px 0 $oc-gray-4;
+
+		&:hover {
+			background-color: $oc-gray-1;
+			color: $oc-gray-8;
+		}
 	}
 }
 
@@ -213,7 +246,7 @@ table.lfs-dashboard-table {
 }
 
 .payout-row td:nth-child(3) {
-	font-weight: bold;
+	// font-weight: bold;
 }
 
 .refund-row {

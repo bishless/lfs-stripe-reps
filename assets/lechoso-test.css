@@ -46,6 +46,8 @@
 
 /* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_test-only.scss */ div[class^='on-'] { margin-bottom: 1em; padding: 0.75em 0.5em; border-radius: 10px; }
 
+/* line 28, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_test-only.scss */ .button { display: inline-block; text-decoration: none; font-size: 13px; line-height: 26px; height: 28px; margin: 0; padding: 0 10px 1px; cursor: pointer; border-width: 1px; border-style: solid; border-radius: 3px; white-space: nowrap; box-sizing: border-box; color: #555; border-color: #ccc; background: #f7f7f7; box-shadow: 0 1px 0 #ccc; vertical-align: top; }
+
 /* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table { border: none; border-collapse: collapse; border-spacing: 0; text-align: left; }
 
 /* line 9, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table caption { caption-side: bottom; font-style: italic; }
@@ -86,49 +88,57 @@
 
 /* line 106, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color caption { color: #495057; }
 
-/* line 112, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr:hover { background-color: rgba(0, 0, 0, 0.1); }
+/* line 110, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr { border-bottom: 1px solid #dee2e6; }
 
-/* line 115, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr:hover td { color: #212529; }
+/* line 117, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr:hover td { color: #212529; }
 
-/* line 120, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-pending, table.on-light-background-color tr.status-in_transit { border-bottom: 1px solid #f59f00; }
+/* line 122, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-pending, table.on-light-background-color tr.status-in_transit { border-bottom: 1px solid #f59f00; }
 
-/* line 124, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-pending td, table.on-light-background-color tr.status-in_transit td { color: #adb5bd; }
+/* line 126, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-pending td, table.on-light-background-color tr.status-in_transit td { color: #adb5bd; }
 
-/* line 126, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
+/* line 128, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
 
-/* line 129, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
+/* line 131, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
 
-/* line 140, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr:hover { background-color: rgba(248, 249, 250, 0.1); }
+/* line 136, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color .button { color: #e9ecef; border-color: transparent; background-color: #495057; box-shadow: 0 1px 0 #212529; }
 
-/* line 143, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr:hover td { color: #f8f9fa; }
+/* line 142, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-light-background-color .button:hover { background-color: #343a40; color: #f1f3f5; }
 
-/* line 146, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-pending, table.on-dark-background-color tr.status-in_transit { border-bottom: 1px solid #f59f00; }
+/* line 152, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr { border-bottom: 1px solid #343a40; }
 
-/* line 150, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-pending td, table.on-dark-background-color tr.status-in_transit td { color: #495057; }
+/* line 159, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr:hover td { color: #f8f9fa; }
 
-/* line 152, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
+/* line 162, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-pending, table.on-dark-background-color tr.status-in_transit { border-bottom: 1px solid #f59f00; }
 
-/* line 155, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
+/* line 166, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-pending td, table.on-dark-background-color tr.status-in_transit td { color: #495057; }
 
-/* line 161, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color th { color: rgba(248, 249, 250, 0.5); text-shadow: 0 0 1px rgba(248, 249, 250, 0.2); }
+/* line 168, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-canceled { border-bottom: 1px dashed #d9480f; }
 
-/* line 166, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color td { color: #e9ecef; text-shadow: 0 0 1px rgba(33, 37, 41, 0.2); }
+/* line 171, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color tr.status-failed { border-bottom: 2px solid #c92a2a; }
 
-/* line 173, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings { background: #dee2e6; border: 2px dashed #ff8787; }
+/* line 177, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color th { color: rgba(248, 249, 250, 0.5); text-shadow: 0 0 1px rgba(248, 249, 250, 0.2); }
 
-/* line 177, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings td { color: transparent; text-shadow: 0 0 5px #000; }
+/* line 182, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color td { color: #ced4da; text-shadow: 0 0 1px rgba(33, 37, 41, 0.2); }
 
-/* line 182, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings .link--csv { display: none; }
+/* line 186, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color td:nth-child(3) { color: #e9ecef; }
 
-/* line 186, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.lfs-dashboard-table tr.status-in_transit { display: none; }
+/* line 192, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color .button { color: #495057; border-color: transparent; background-color: #dee2e6; box-shadow: 0 1px 0 #ced4da; }
 
-/* line 189, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.lfs-dashboard-table tr.status-paid + tr.status-paid { display: none; }
+/* line 198, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.on-dark-background-color .button:hover { background-color: #f1f3f5; color: #343a40; }
 
-/* line 206, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .head-row th:nth-child(3) .head-row th:nth-child(4), .charge-row td:nth-child(2), .transfer-row td:nth-child(2), .payout-row td:nth-child(3), .payout-row td:nth-child(4) { text-align: right !important; }
+/* line 206, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings { background: #dee2e6; border: 2px dashed #ff8787; }
 
-/* line 215, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .payout-row td:nth-child(3) { font-weight: bold; }
+/* line 210, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings td { color: transparent; text-shadow: 0 0 5px #000; }
 
-/* line 219, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .refund-row { font-style: italic; background-color: rgba(255, 0, 0, 0.1); color: #900; }
+/* line 215, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.table--payouts.plugin-needs-settings .link--csv { display: none; }
+
+/* line 219, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.lfs-dashboard-table tr.status-in_transit { display: none; }
+
+/* line 222, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ table.lfs-dashboard-table tr.status-paid + tr.status-paid { display: none; }
+
+/* line 239, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .head-row th:nth-child(3) .head-row th:nth-child(4), .charge-row td:nth-child(2), .transfer-row td:nth-child(2), .payout-row td:nth-child(3), .payout-row td:nth-child(4) { text-align: right !important; }
+
+/* line 252, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_tables.scss */ .refund-row { font-style: italic; background-color: rgba(255, 0, 0, 0.1); color: #900; }
 
 /* line 2, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ span[class*='pill__status--'] { border-radius: 12px; font-size: 0.75em; font-weight: bold; line-height: 0.9; padding: 4px 12px; text-transform: uppercase; }
 
@@ -136,25 +146,25 @@
 
 /* line 18, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color { background-color: #23282d; }
 
-/* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span[class*='pill__status--'] { background-color: #ced4da; }
+/* line 21, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span[class*='pill__status--'] { color: #23282d; }
 
-/* line 25, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--paid { color: #2b8a3e; }
+/* line 34, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--paid { background-color: rgba(81, 207, 102, 0.7); }
 
-/* line 26, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--pending, .on-dark-background-color span.pill__status--in_transit { color: #e67700; }
+/* line 35, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--pending, .on-dark-background-color span.pill__status--in_transit { background-color: rgba(252, 196, 25, 0.7); }
 
-/* line 28, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--canceled, .on-dark-background-color span.pill__status--cancelled { color: #d9480f; }
+/* line 37, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--canceled, .on-dark-background-color span.pill__status--cancelled { background-color: rgba(255, 146, 43, 0.7); }
 
-/* line 30, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--failed { color: #c92a2a; }
+/* line 39, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-dark-background-color span.pill__status--failed { background-color: rgba(255, 107, 107, 0.7); }
 
-/* line 33, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color { background-color: #f1f3f5; }
+/* line 42, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color { background-color: #f1f3f5; }
 
-/* line 36, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span[class*='pill__status--'] { color: rgba(0, 0, 0, 0.4); }
+/* line 45, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span[class*='pill__status--'] { background-color: rgba(0, 0, 0, 0.05); }
 
-/* line 40, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--paid { background-color: #51cf66; }
+/* line 56, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--paid { color: #2b8a3e; }
 
-/* line 41, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--pending, .on-light-background-color span.pill__status--in_transit { background-color: #fcc419; }
+/* line 57, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--pending, .on-light-background-color span.pill__status--in_transit { color: #e67700; }
 
-/* line 43, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--canceled, .on-light-background-color span.pill__status--cancelled { background-color: #ff922b; }
+/* line 59, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--canceled, .on-light-background-color span.pill__status--cancelled { color: #d9480f; }
 
-/* line 45, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--failed { background-color: #ff6b6b; }
+/* line 61, Users/dbishop/Sites/lfs/wp-content/plugins/lfs-stripe-reports/scss/_status.scss */ .on-light-background-color span.pill__status--failed { color: #c92a2a; }
 /*# sourceMappingURL=lechoso-test.css.map */
