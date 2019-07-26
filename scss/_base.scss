@@ -24,13 +24,34 @@ button#js_theme_toggle {
 }
 
 
-.on-light-background-color {
-	background-color: #fff;
+div.on-light-background-color {
+	background-color: $oc-gray-0;
 	color: $oc-gray-7;
 }
-.on-dark-background-color {
+table.on-light-background-color {
+	thead,
+	tbody {
+		background-color: $oc-gray-0;
+		color: $oc-gray-7;
+	}
+	tfoot {
+		background-color: transparent;
+	}
+}
+
+div.on-dark-background-color {
 	background-color: $oc-gray-9;
 	color: $oc-gray-2;
+}
+table.on-dark-background-color {
+	thead,
+	tbody {
+		background-color: $oc-gray-9;
+		color: $oc-gray-2;
+	}
+	tfoot {
+		background-color: $oc-gray-8;
+	}
 }
 
 .wrap {

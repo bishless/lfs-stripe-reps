@@ -93,11 +93,24 @@ block content
           th something
       tbody
         +tableRow("in_transit", "12/25/2017", "$120.55", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/24/2017", "$1904.55", "02306", "tr_09230ssv09dw02306", "dolor sin amet")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/23/2017", "$908.55", "02305", "tr_09230ssv09dw02305", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("canceled", "12/23/2017", "$7651.55", "02301", "tr_09230ssv09dw02301", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("failed", "12/22/2017", "$11120.55", "02291", "tr_09230ssv09dw02291", "Lorem ipsum")
-    h5 Payout-like Table in Green
+        tr
+          td(class="fake-border",colspan="5")
+      tfoot
+        tr
+          td(colspan="5") tFoot
+    h5 Payout-like Table in Dark
     table(class="table--payouts on-dark-background-color")
       caption Payout-like Table
       thead
@@ -109,10 +122,23 @@ block content
           th something
       tbody
         +tableRow("in_transit", "12/25/2017", "$120.55", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/24/2017", "$1904.55", "02306", "tr_09230ssv09dw02306", "dolor sin amet")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/23/2017", "$908.55", "02305", "tr_09230ssv09dw02305", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("canceled", "12/23/2017", "$7651.55", "02301", "tr_09230ssv09dw02301", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("failed", "12/22/2017", "$11120.55", "02291", "tr_09230ssv09dw02291", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
+      tfoot
+        tr
+          td(colspan="5") tFoot
     h5 Payout-like Table with theme switch?
     p
       button(id='js_theme_toggle')
@@ -128,10 +154,23 @@ block content
           th something
       tbody
         +tableRow("in_transit", "12/25/2017", "$120.12", "02308", "tr_09230ssv09dw02308", "Lorem ipsum")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/25/2017", "$120.12", "02307", "tr_09230ssv09dw02307", "dolor sin amet")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/24/2017", "$1904.55", "02308", "tr_09230ssv09dw02304", "berries")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/21/2017", "$908.31", "02299", "tr_09230ssv09dw02299", "apples")
+        tr
+          td(class="fake-border",colspan="5")
         +tableRow("paid", "12/18/2017", "$7651.57", "02296", "tr_09230ssv09dw02296", "stapler")
+        tr
+          td(class="fake-border",colspan="5")
+      tfoot
+        tr
+          td(colspan="5") tFoot
 
 
   .test-component#test-status

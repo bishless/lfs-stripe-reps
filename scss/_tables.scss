@@ -48,21 +48,34 @@ tfoot {
 
 
 table.table--payouts { // just geometry and type -- no color info
-	border: none;
-	border-collapse: collapse;
+	// border: none;
+	border-collapse: separate;
 	border-radius: 4px;
 	border-spacing: 0;
+	border-style: solid;
+	border-width: 1px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: $space*3;
+	table-layout: fixed;
 
 	caption {
 		caption-side: bottom;
 		padding-top: $space;
 	}
 
-	tr {
-		transition: background 0.3s, box-shadow 0.3s;
+	thead {
+		th {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			-webkit-font-smoothing: antialiased;
+			text-transform: uppercase;
+			font-size: 1em;
+		}
+	}
+
+	tbody tr {
+		// transition: background 0.3s, box-shadow 0.3s;
 
 		&.micro-row {
 			font-size: 4px;
@@ -80,6 +93,8 @@ table.table--payouts { // just geometry and type -- no color info
 			}
 		}
 
+		&:not(.payout-row) td { padding: 0; }
+
 	}
 
 	th:not(:first-of-type),
@@ -89,35 +104,28 @@ table.table--payouts { // just geometry and type -- no color info
 		padding-right: $space*1.5;
 	}
 
-	th {
-		-webkit-font-smoothing: antialiased;
-		text-transform: uppercase;
+	td {
 		font-size: 1em;
 	}
 
-	td {
-		font-size: 1em;
+	tfoot td {
+		padding: $space*2;
 	}
 }
 
 
 table.on-light-background-color {
+	border-color: $oc-gray-3;
 
 	caption {
 		color: $oc-gray-7;
 	}
 
-	tr {
+	thead th {
+		border-color: $oc-gray-3;
+	}
 
-		border-bottom: 1px solid $oc-gray-3;
-
-		&:hover {
-			// background-color: rgba(0,0,0,0.1);
-
-			td {
-				color: $oc-gray-9;
-			}
-		}
+	tbody tr {
 
 		&.status-pending,
 		&.status-in_transit {
@@ -131,7 +139,10 @@ table.on-light-background-color {
 		&.status-failed {
 			border-bottom: 2px solid $color-status-failed;
 		}
+
 	}
+
+	td.fake-border { border-bottom: 1px solid $oc-gray-3; }
 
 	.button {
 		color: $oc-gray-2;
@@ -148,16 +159,13 @@ table.on-light-background-color {
 
 
 table.on-dark-background-color {
+	border-color: $oc-gray-9;
 
-	tr {
+	thead th {
+		border-color: $oc-gray-8;
+	}
 
-		border-bottom: 1px solid $oc-gray-8;
-
-		&:hover {
-			// background-color: rgba($oc-gray-0,0.1);
-
-			td { color: $oc-gray-0; }
-		}
+	tbody tr {
 
 		&.status-pending,
 		&.status-in_transit {
@@ -180,13 +188,15 @@ table.on-dark-background-color {
 	}
 
 	td {
-		color: $oc-gray-4;
-		text-shadow: 0 0 1px rgba($oc-gray-9,0.2);
+		// color: $oc-gray-4;
+		// text-shadow: 0 0 1px rgba($oc-gray-9,0.2);
 
-		&:nth-child(3) {
-			// font-weight: bold;
-			color: $oc-gray-2;
-		}
+		// &:nth-child(3) {
+		// 	// font-weight: bold;
+		// 	color: $oc-gray-2;
+		// }
+
+		&.fake-border { border-bottom: 1px solid $oc-gray-8; }
 	}
 
 	.button {
@@ -216,11 +226,13 @@ table.table--payouts.plugin-needs-settings {
 }
 
 table.lfs-dashboard-table {
-	tr.status-in_transit {
-		display: none;
-	}
-	tr.status-paid + tr.status-paid {
-		display: none; // give illusion of only latest paid payout
+	tbody {
+		// tr.status-in_transit {
+		// 	display: none;
+		// }
+		tr:not(.payout-row) + tr.status-paid {
+			display: none; // give illusion of only latest paid payout
+		}
 	}
 }
 

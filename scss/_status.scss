@@ -16,7 +16,6 @@ span[class*='pill__status--'] {
 
 
 .on-dark-background-color {
-	background-color: $color-admin-dark;
 
 	span[class*='pill__status--'] {
 		// background-color: $oc-gray-4;
@@ -40,7 +39,6 @@ span[class*='pill__status--'] {
 }
 
 .on-light-background-color {
-	background-color: $oc-gray-1;
 
 	span[class*='pill__status--'] {
 		background-color: rgba($oc-black, .05);
