@@ -1,5 +1,5 @@
 
-table {
+table.lechoso {
 	border: none;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -10,9 +10,23 @@ table {
 		caption-side: bottom;
 		font-style: italic;
 	}
+
+	td,
+	th {
+		vertical-align: middle;
+		padding: $space*2;
+	}
+
+	thead {
+		border-bottom: 2px solid $oc-gray-3;
+	}
+
+	tfoot {
+		border-top: 2px solid $oc-gray-3;
+	}
 }
 
-table:not([class*='on-']) {
+table.lechoso:not([class*='on-']) {
 	color: $oc-gray-7;
 
 	caption {
@@ -20,34 +34,19 @@ table:not([class*='on-']) {
 	}
 }
 
-td,
-th {
-	vertical-align: middle;
-	padding: $space*2;
-}
-
-thead {
-	border-bottom: 2px solid $oc-gray-3;
-}
-
-tfoot {
-	border-top: 2px solid $oc-gray-3;
-}
-
-
 @supports (font-feature-settings: lnum) {
-	table {
+	table.lechoso {
 		font-feature-settings: lnum tnum;
 	}
 }
 @supports (font-variant-numeric: lining-nums tabular-nums) {
-	table {
+	table.lechoso {
 		font-variant-numeric: lining-nums tabular-nums;
 	}
 }
 
 
-table.table--payouts { // just geometry and type -- no color info
+table.lechoso.table--payouts { // just geometry and type -- no color info
 	// border: none;
 	border-collapse: separate;
 	border-radius: 4px;
@@ -114,7 +113,7 @@ table.table--payouts { // just geometry and type -- no color info
 }
 
 
-table.on-light-background-color {
+table.lechoso.on-light-background-color {
 	border-color: $oc-gray-3;
 
 	caption {
@@ -158,7 +157,7 @@ table.on-light-background-color {
 }
 
 
-table.on-dark-background-color {
+table.lechoso.on-dark-background-color {
 	border-color: $oc-gray-9;
 
 	thead th {
@@ -213,7 +212,7 @@ table.on-dark-background-color {
 }
 
 
-table.table--payouts.plugin-needs-settings {
+table.lechoso.table--payouts.plugin-needs-settings {
 	background: $oc-gray-3;
 	border: 2px dashed $oc-red-4;
 
@@ -225,7 +224,7 @@ table.table--payouts.plugin-needs-settings {
 	.link--csv { display: none; }
 }
 
-table.lfs-dashboard-table {
+table.lechoso.lfs-dashboard-table {
 	tbody {
 		// tr.status-in_transit {
 		// 	display: none;
@@ -248,21 +247,24 @@ table.lfs-dashboard-table {
 // 	text-align: center;
 // }
 
-.head-row th:nth-child(3)
-.head-row th:nth-child(4),
-.charge-row td:nth-child(2),
-.transfer-row td:nth-child(2),
-.payout-row td:nth-child(3),
-.payout-row td:nth-child(4) {
-	text-align: right !important;
-}
 
-.payout-row td:nth-child(3) {
-	// font-weight: bold;
-}
+.lechoso {
+	.head-row th:nth-child(3)
+	.head-row th:nth-child(4),
+	.charge-row td:nth-child(2),
+	.transfer-row td:nth-child(2),
+	.payout-row td:nth-child(3),
+	.payout-row td:nth-child(4) {
+		text-align: right !important;
+	}
 
-.refund-row {
-	font-style: italic;
-	background-color: rgba(255,0,0,0.1);
-	color: #900;
+	.payout-row td:nth-child(3) {
+		// font-weight: bold;
+	}
+
+	.refund-row {
+		font-style: italic;
+		background-color: rgba(255,0,0,0.1);
+		color: #900;
+	}
 }
